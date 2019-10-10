@@ -1,0 +1,16 @@
+html, body {
+    font-family: sans-serif;
+}
+body {
+    margin: 20px;
+}
+
+h4 {
+    color: #c83333;
+}
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0,0,0,.1);
+}
