@@ -126,18 +126,82 @@ document.querySelector('#i-14').value = 'Hello';
 // Task 15.
 // Создайте input и получите его в переменную y. В js выполните следующее присвоение: y.style.border = '2px solid red' . Изучите результат операции.
 
+let y = document.querySelector('#i-15');
+y.style.border = '2px solid red';
+
 // Task 16.
 // Создайте два input type=number, куда пользователь может ввести числа. Выведите на страницу сумму данных чисел.
 
+let f16 = document.querySelector('#first-16');
+let s16 = document.querySelector('#second-16');
+
+f16.oninput = function () {
+
+    let res16 = +f16.value + +s16.value;
+
+    document.querySelector('.p-16').innerText = res16;
+
+}
+
+s16.oninput = function () {
+
+    let res16 = +f16.value + +s16.value;
+
+    document.querySelector('.p-16').innerText = res16;
+
+}
+
 // Task 17.
-// Создайте input type="text" куда пользователь может ввести строку и число. Создайте функцию, которая запускается по нажатию на кнопку. Получите значение из input в переменную t. А затем сделайте операцию t = parseInt(t), и результат операции выведите в консоль. Прочитайте за эту операцию. Попробуйте по очереди вводить 44, 44aaa, 44.3, a45 . Изучите вывод.
+// Создайте input type="text" куда пользователь может ввести строку и число. Создайте функцию, которая запускается по нажатию на кнопку.
+// Получите значение из input в переменную t. А затем сделайте операцию t = parseInt(t), и результат операции выведите в консоль.
+// Прочитайте за эту операцию. Попробуйте по очереди вводить 44, 44aaa, 44.3, a45 . Изучите вывод.
+
+document.querySelector('.res-17').onclick = function () {
+
+    let t = document.querySelector('#i-17').value;
+
+    t = parseInt(t);
+    console.log(t);
+
+};
 
 // Task 18.
-// Создайте input type="text" куда пользователь может ввести строку и число. Создайте функцию, которая запускается по нажатию на кнопку. Получите значение из input в переменную t. А затем сделайте операцию t = parseFloat(t), и результат операции выведите в консоль. Прочитайте за эту операцию. Попробуйте по очереди вводить 44, 44aaa, 44.3, a45 . Изучите вывод.
+// Создайте input type="text" куда пользователь может ввести строку и число. Создайте функцию, которая запускается по нажатию на кнопку.
+// Получите значение из input в переменную t. А затем сделайте операцию t = parseFloat(t), и результат операции выведите в консоль.
+// Прочитайте за эту операцию. Попробуйте по очереди вводить 44, 44aaa, 44.3, a45 . Изучите вывод.
+
+document.querySelector('.res-18').onclick = function () {
+
+    let t = document.querySelector('#i-18').value;
+    t = parseFloat(t);
+    console.log(t);
+
+};
 
 // Task 19.
-// Создайте два input type=number, куда пользователь может ввести отрицательные числа. Выведите на страницу сумму данных чисел. Мы это делали! Зачем? Затем, что нужно понимать как влияет перевод в число с помощью + и parseInt на отрицательные числа!!!
+// Создайте два input type=number, куда пользователь может ввести отрицательные числа. Выведите на страницу сумму данных чисел. Мы это делали! Зачем?
+// Затем, что нужно понимать как влияет перевод в число с помощью + и parseInt на отрицательные числа!!!
+
+document.querySelector('.res-19').onclick = function () {
+
+    let f19 = document.querySelector('#first-19').value;
+    let s19 = document.querySelector('#second-19').value;
+
+    document.querySelector('.p-19').innerText = parseInt(f19) + parseInt(s19);
+
+}
 
 // Task 20.
-// Создайте опросник, куда пользователь может ввести имя, фамилию, возраст, род занятий. И кнопку. По нажатию кнопки выведите на страницу предложение 'Уважаемый Иван, Иванов, ваш возраст 33 года, по професси вы ...' куда поставьте соответствующие данные из inputов.
+// Создайте опросник, куда пользователь может ввести имя, фамилию, возраст, род занятий. И кнопку. По нажатию кнопки выведите на страницу предложение
+// 'Уважаемый Иван Иванов, ваш возраст 33 года, по професси вы ...' куда поставьте соответствующие данные из inputов.
 
+document.querySelector('.res-20').onclick = function () {
+
+    let name = document.querySelector('#name-20').value;
+    let surname = document.querySelector('#surname-20').value;
+    let age = document.querySelector('#age-20').value;
+    let occupation = document.querySelector('#occupation-20').value;
+
+    document.querySelector('.p-20').innerText = `Уважаемый ${name} ${surname}, ваш возраст ${age} года, по професси вы ${occupation}.`;
+
+}
