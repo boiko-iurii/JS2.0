@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Unit 4</title>
+</head>
+
+<body>
+    <h1 class="h1">[Unit 4]</h1>
+    <div>
+        <p><b>Task 1. </b>Создайте button - при нажатии на него выводите alert с номером задачи.</p>
+        <button class="btn-1">click</button>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 2. </b>Создайте input type=button - при нажатии на него выводите alert с номером задачи.</p>
+        <input type="button" value="click" id="i-2">
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 3. </b>Создайте p - при нажатии на него выводите alert с номером задачи.</p>
+        <p class="p-3">click</p>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 4. </b>Создайте input(checkbox) и button - при нажатии на него выводите true если checkbox выбран и
+            false если нет.</p>
+        <input type="checkbox" name="i-4" id="i-4">
+        <button class="btn-4">click</button>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 5. </b>Создайте input(checkbox) и button. Добавьте value для checkbox. При нажатии на него выводите
+            value если checkbox выбран и false если нет.</p>
+        <input type="checkbox" name="i-5" id="i-5" value="default">
+        <button class="btn-5">click</button>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 6. </b>Создайте input(hidden) и button - при нажатии на него выводите alert с value прописанным в
+            input.</p>
+        <input type="hidden" name="i-6" id="i-6" value="hidden">
+        <button class="btn-6">click</button>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 7. </b>Создайте input(password) и button - при нажатии на него выводите alert с value прописанным в
+            input. Выводите в консоль предупреждение, если длина пароля меньше 6 символов.</p>
+        <input type="password" name="i-7" id="i-7">
+        <button class="btn-7">check</button>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 8. </b>Создайте div и кнопку. При нажатии кнопки создавайте внутри div элемент input и кнопку
+            (innerHTML). Добавьте на созданную кнопку событие - при клике выводить alert c содержимым созданного input.
+        </p>
+        <div class="d-8"></div>
+        <button class="btn-8">click</button>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 9. </b>Создайте один input(radio) . и button - при нажатии на button выводите alert с value
+            прописанным в активном (если он активен, если нет - то alert - false) radiobutton.</p>
+        <input type="radio" name="i-9" id="i-9" value="active">
+        <button class="btn-9">click</button>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 10. </b>Создайте input(color) и button - при нажатии на него окрашивайте div выбранным цветом.</p>
+        <input type="color" name="i-10" id="i-10">
+        <button class="btn-10">click</button>
+        <div class="div-10"></div>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 11. </b>Создайте input(color) - два элемента и button - при нажатии на кнопку присвойте цвет из
+            первого input в value второго.</p>
+        <input type="color" name="f-11" id="f-11">
+        <input type="color" name="s-11" id="s-11">
+        <button class="btn-11">click</button>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 12. </b>Создайте input(date) и button - при нажатии на кнопку выводите на страницу выбранную дату.
+        </p>
+        <input type="date" id="date-12">
+        <button class="btn-12">click</button>
+        <p class="out-12"></p>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 13. </b>Создайте input(range) и button - при нажатии на кнопку выводите на страницу значение из
+            input. Добавьте событие oninput на range и тоже выводите значение на страницу.</p>
+        <input type="range" name="range-13" id="range-13">
+        <button class="btn-13">click</button>
+        <p id="out-13"></p>
+        <p class="out-13"></p>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 14. </b>Создайте text-area и button - при нажатии на кнопку выводите на страницу значение из
+            textarea.</p>
+        <textarea name="textarea-14" id="textarea-14" cols="30" rows="5" placeholder="Введите текст"></textarea>
+        <button class="btn-14">click</button>
+        <p class="out-14"></p>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 15. </b>Создайте text-area, input и button - при нажатии на кнопку выводите текс из input в textarea
+            и на страницу.</p>
+        <input type="text" name="i-15" id="i-15"><br><br>
+        <textarea name="textarea-15" id="textarea-15" cols="30" rows="5" placeholder="Введите текст"></textarea>
+        <button class="btn-15">click</button>
+        <p class="out-15"></p>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 16. </b>Создайте select и button - при нажатии на кнопку выводите на страницу value выбранное в
+            select option.</p>
+        <select name="select-16" id="select-16">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+        <button class="btn-16">click</button>
+        <p class="out-16"></p>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 17. </b>Эту задачу пока не делаем!!!!!</p>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 18. </b>Создайте select добавьте на него событие onchange. По данному событию выводите value
+            выбранного option на страницу.</p>
+        <select name="select-18" id="select-18">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+        <p class="out-18"></p>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 19. </b>Создайте форму. В ней input(text) и input(password) - и кнопку. По нажатию кнопки выводите
+            значение text и password в консоль!.</p>
+        <form action="/" id="form-19">
+            <input type="text" name="i-19" id="txt-19">
+            <input type="password" name="pass-19" id="pass-19">
+            <button class="btn-19">click</button>
+        </form>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 20. </b>Создайте форму. В ней input(text) и input(password) - и кнопку. По нажатию кнопки выводите
+            значение text и password в консоль! Используйте form.elements (читать)</p>
+        <form action="/" id="form-20">
+            <input type="text" name="i-20" id="txt">
+            <input type="password" name="pass-20" id="pass">
+            <button class="btn-20">click</button>
+        </form>
+        <hr>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
