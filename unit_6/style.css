@@ -1,8 +1,25 @@
 html,
 body {
     font-family: serif;
+    background-color: #f8f8f8;
 }
 
 body {
     margin: 20px auto;
+    width: 95%;
+}
+pre {
+    border: 1px solid #c0c0c0;
+    background: #fff;
+    padding: 5px;
+    font-family: monospace;
+}
+p[id *= "output"] {
+    font-family: monospace;
+}
+
+#output19,
+#output20 {
+    display: inline-block;
+    text-align: center;
 }
