@@ -20,3 +20,23 @@ pre {
     padding: 5px;
     font-family: monospace;
 }
+
+.div-15,
+.div-16,
+.div-17,
+.div-18,
+.div-19,
+.go {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #000;
+}
+.go {
+    margin-right: 20px;
+    text-align: center;
+    line-height: 50px;
+}
+.wrapper {
+    display: flex;
+
+}
