@@ -1,50 +1,83 @@
 // task 1 --------------------
 
 for (let i = 0; i < 3; i++) {
+
     for (let k = 0; k < 3; k++) {
+
         output1.innerHTML += '*';
+
     }
+
     output1.innerHTML += '  ';
+
 }
 
 // task 2 --------------------
 
 for (let i = 0; i < 3; i++) {
+
     for (let k = 0; k < 5; k++) {
+
         output2.innerHTML += '*';
+
     }
+
     output2.innerHTML += '<br>';
+
 }
 
 // task 3 --------------------
 
 for (let i = 0; i < 3; i++) {
+
     for (let k = 0; k < 6; k++) {
+
         if (k % 2 == 0) {
+
             output3.innerHTML += '1';
+
         }
+
         else {
+
             output3.innerHTML += '0';
+
         }
+
     }
+
     output3.innerHTML += '<br>';
+
 }
 
 // task 4 --------------------
 
 for (let i = 0; i < 3; i++) {
+
     for (let k = 0; k < 6; k++) {
+
         if ((k + 1) % 3 == 0) {
+
             output4.innerHTML += 'x';
+
         }
+
         else if ((k + 1) % 2 == 0) {
+
             output4.innerHTML += '0';
+
         }
+
         else {
+
             output4.innerHTML += '1';
+
         }
+
     }
+
     output4.innerHTML += '<br>';
+
 }
 
 // task 5 --------------------
@@ -82,6 +115,7 @@ for (let i = 3; i > 0; i--) {
         output7.innerHTML += '&nbsp;';
 
     }
+
     for (let k = 5; k > 0; k--) {
 
         output7.innerHTML += '*';
@@ -119,6 +153,7 @@ for (let i = 2; i >= 1; i--) {
 }
 
 // task 9 --------------------
+
 for (let i = 1; i <= 5; i++) {
 
     if (i == 1 || i == 5) {
@@ -152,11 +187,64 @@ for (let i = 1; i <= 5; i++) {
 
 // task 10 --------------------
 
+document.querySelector('.btn-10').onclick = () => {
+
+    let symb = document.querySelector('#i-10').value;
+
+    for (let i = 1; i <= 5; i++) {
+
+        if (i == 1 || i == 5) {
+
+            for (let k = 1; k <= 6; k++) {
+
+                if (symb.length == 0) {
+
+                    output10.innerHTML += '*';
+
+                } else {
+
+                    output10.innerHTML += symb;
+
+                }
+
+            }
+
+        } else {
+
+            for (let k = 1; k <= 6; k++) {
+
+                if (k == 1 || k == 6) {
+
+                    if (symb.length == 0) {
+
+                        output10.innerHTML += '*';
+
+                    } else {
+
+                        output10.innerHTML += symb;
+
+                    }
+
+                } else {
+
+                    output10.innerHTML += '&nbsp;';
+
+                }
+
+            }
+        }
+
+        output10.innerHTML += '<br>';
+
+    }
+
+}
+
 // task 11 --------------------
 
 for (let i = 6; i <= 7; i++) {
 
-    for (let k = 1; k <= 9; k++) {
+    for (let k = 1; k <= 10; k++) {
 
         output11.innerHTML += `${i} * ${k} = ${i * k}`;
 
@@ -173,7 +261,7 @@ for (let i = 1; i <= 5; i++) {
 
     for (let k = 1; k <= i; k++) {
 
-        output12.innerHTML += k;
+        output12.innerHTML += k + '&nbsp;';
 
     }
 
@@ -209,7 +297,7 @@ for (let i = 5; i >= 1; i--) {
 
     for (let k = i; k >= 1; k--) {
 
-        output14.innerHTML += k;
+        output14.innerHTML += k + '&nbsp;';
 
     }
 
