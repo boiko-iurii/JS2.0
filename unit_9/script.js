@@ -2,7 +2,7 @@
 
 function func_1() {
 
-    document.querySelector('.u-1').style.cssText = 'width: 200px; height: 100px;';
+    document.querySelector('p.u-1').style.cssText = 'width: 200px; height: 100px;';
 
 }
 func_1();
@@ -11,14 +11,14 @@ func_1();
 
 function func_2() {
 
-    document.querySelector('.u-2').classList.add('css-1');
+    document.querySelector('p.u-2').classList.add('css-1');
 
 }
 func_2();
 
 // TASK 3. Используя цикл, добавьте на все блоки p.u - 3 событие onclick.По клику запускайте функцию func_3, которая окрашивает элемент, на котором произошло событие в красный цвет фона.Для обращения внутри функции к такому элементу используйте this.
 
-let blocks3 = document.querySelectorAll('.u-3');
+let blocks3 = document.querySelectorAll('p.u-3');
 
 for (let i = 0; i < blocks3.length; i++)
 
@@ -36,8 +36,7 @@ function func_3(elem) {
 
 // TASK 4. Используя цикл, добавьте на все блоки p.u - 4 событие onclick.По клику запускайте функцию func_4, которая присваивает элементу, на котором произошло событие, класс css - 2. Для обращения внутри функции к такому элементу используйте this.
 
-
-let blocks4 = document.querySelectorAll('.u-4');
+let blocks4 = document.querySelectorAll('p.u-4');
 
 for (let i = 0; i < blocks4.length; i++)
 
@@ -53,69 +52,257 @@ function func_4(elem) {
 
 }
 
-
 // TASK 5. C помощью цикла, повесьте на блоки p.u - 5 функцию func_5, которая при клике будет удалять класс css - 3 с элемента, на котором произошло событие.
 
-function func_5() { }
+let blocks5 = document.querySelectorAll('p.u-5');
+
+for (let i = 0; i < blocks5.length; i++)
+
+    blocks5[i].onclick = function () {
+
+        func_5(this);
+
+    }
+
+function func_5(elem) {
+
+    elem.classList.remove('css-3');
+
+}
 
 // TASK 6. Есть кнопка.u - 6. Напишите функцию, которая при клике делает toggle классу.active для данной кнопки.
 
-function func_6() { }
+document.querySelector('.u-6').onclick = function () {
+    func_6(this);
+}
+
+function func_6(btn) {
+    btn.classList.toggle('active');
+}
 
 // TASK 7. Напишите функцию func - 7, которая будучи запущенной возвращает количество элементов с классом css-3.
 
-function func_7() { }
+function func_7() {
+    let elems = document.querySelectorAll('.css-3');
+    return elems.length;
+}
+
+func_7();
 
 // TASK 8. Напишите функцию func - 8, которая будучи запущенной, присваивает всем элементам p.u - 1 атрибут title со значением test - data.
 
-function func_8() { }
+function func_8() {
+    let elems = document.querySelectorAll('p.u-1');
+    for (let i = 0; i < elems.length; i++) {
+        elems[i].setAttribute('title', 'test - data');
+    }
+}
+
+func_8();
 
 // TASK 9. С помощью цикла получите кнопки.u - 9. Добавьте на них событие onclick которое запускает функцию func - 9. Функция возращает data атрибут элемента, по которому кликнули.
 
-function func_9() { }
+let buttons = document.querySelectorAll('.u-9');
+
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].onclick = function () {
+        func_9(this);
+    }
+}
+
+function func_9(btn) {
+    return btn.getAttribute('data');
+}
 
 // TASK 10. Напишите функцию func - 10, которая при клике на кнопке.u -10__button читает атрибут валюты data - currency и на основании этого выводит в p.u -10__out коэффициент данной валюты по отношению к доллару.Коэффициент возьмите приблизительно из интернета.Считается, что пользователь всегда вводит валюту в долларах.
 
-function func_10() { }
+function func_10() {
+
+    let btns = document.querySelectorAll('.u-10__button');
+    let out = document.querySelector('p.u-10__out');
+    let i = 0;
+
+    while (i < btns.length) {
+        btns[i].onclick = function () {
+            out.innerText = getCurrencyRatio(this);
+        }
+        i++;
+    }
+
+}
+func_10();
+
+function getCurrencyRatio(el) {
+
+    let dataCurrency = el.getAttribute('data-currency');
+    let ratio;
+
+    switch (dataCurrency) {
+        case 'euro':
+            ratio = 0.9;
+            break;
+        case 'usd':
+            ratio = 1;
+            break;
+        case 'rub':
+            ratio = 64.2;
+            break;
+    }
+
+    return ratio;
+}
 
 // TASK 11.Напишите функцию func - 11, которая при клике на кнопке.u -11__button читает атрибут валюты data - currency и на основании этого выводит в p.u -11__out перевод валюты введенной пользователем в input.u -11__input в указанную валюту.Считается, что пользователь всегда вводит валюту в долларах. 
 
-function func_11() { }
+function func_11() {
+
+    let btns = document.querySelectorAll('.u-11__button');
+    let out = document.querySelector('p.u-11__out');
+    let cash = document.querySelector('.u-11_out');
+    let i = 0;
+
+    while (i < btns.length) {
+        btns[i].onclick = function () {
+            let outCash = getCurrencyRatio(this) * parseFloat(cash.value);
+            out.innerText = outCash.toFixed(2);
+        }
+        i++;
+    }
+
+}
+
+func_11();
 
 // TASK  12. Создайте функцию func - 12, которая создает через createElement элемент div, присваивает ему класс css - 4 и возвращает данный элемент
 
-function func_12() { }
+function func_12() {
+    let el = document.createElement('div');
+    el.classList.add('css-4');
+    return el;
+}
 
 // TASK  13.Создайте функцию func - 13, которая создает элемент span.span - 13 с текстом 13 через createElement и вставляет его в p.u - 13(append).
 
-function func_13() { }
+function func_13() {
+    let el = document.createElement('span');
+    el.classList.add('span-13');
+    el.innerText = 13;
+    document.querySelector('p.u-13').append(el);
+}
+func_13();
 
 // TASK  14. Создайте функцию func - 14, которая создает элемент span.span - 14 с текстом 14 через createElement и вставляет его в p.u - 14(prepend).
 
-function func_14() { }
+function func_14() {
+    let el = document.createElement('span');
+    el.classList.add('span-14');
+    el.innerText = 14;
+    document.querySelector('p.u-14').prepend(el);
+}
+func_14();
 
 // TASK 15. Создайте функцию func - 15, которая создает элемент span.span - 15 с текстом 15 через createElement и вставляет его в p.u - 15(before)
 
-function func_15() { }
+function func_15() {
+    let el = document.createElement('span');
+    el.classList.add('span-15');
+    el.innerText = 15;
+    document.querySelector('p.u-15').before(el);
+}
+func_15();
 
-// TASK    16. Создайте функцию funct - 16, которая создает элемент button.u - 16 c текстом Push.Повесьте на данный элемент событие onclick со стрелочной функцией, которая в консоль выводит текст u - 16. И после добавления события добавьте данный элемент на страницу в div.u -16__out.Проверьте работоспособность события.
+// TASK 16. Создайте функцию funct - 16, которая создает элемент button.u - 16 c текстом Push.Повесьте на данный элемент событие onclick со стрелочной функцией, которая в консоль выводит текст u - 16. И после добавления события добавьте данный элемент на страницу в div.u -16__out.Проверьте работоспособность события.
 
-function func_16() { }
+function func_16() {
+    let el = document.createElement('button');
+    el.classList.add('u-16');
+    el.innerText = 'Push';
+
+    el.onclick = () => {
+        console.log('u-16');
+    }
+    document.querySelector('.u-16__out').append(el);
+
+}
+func_16();
 
 // TASK 17. Создайте функцию, funct - 17, которая при запуске создаст элемент p c текстом 17 и заменит этим элементом div.u - 17
 
-function func_17() { }
+function func_17() {
 
-// TASK 19. C помощью цикла повесьте на div.out - 18 функцию func - 18. Данная функция дожна удалять элемент, на котором произошел клик из DOM.Функция должна возвращать удаленный элемент
+    let div = document.querySelector('.u-17');
+    let p = document.createElement('p');
 
-function func_18() { }
+    p.innerText = '17';
+    div.before(p);
+    div.remove();
+
+}
+func_17();
+
+// TASK 18. C помощью цикла повесьте на div.out - 18 функцию func - 18. Данная функция дожна удалять элемент, на котором произошел клик из DOM.Функция должна возвращать удаленный элемент
+
+let divs = document.querySelectorAll('div.out-18');
+
+for (let i = 0; i < divs.length; i++) {
+
+    divs[i].onclick = function () {
+
+        func_18(this);
+
+        console.log(func_18(this));
+
+    }
+
+}
+
+function func_18(el) {
+
+    let elem = el;
+
+    el.remove();
+
+    return elem;
+
+}
+
 // TASK   19. Создайте функцию func - 19, которая принимает параметр текст.Создает элемент li, вставляет в него указанный текст, и добавляет на страницу в ul.u - 19 в конец списка.
 
-function func_19() { }
+function func_19(text) {
+
+    let li = document.createElement('li');
+    let ul = document.querySelector('.u-19');
+
+    li.innerText = text;
+    ul.append(li);
+
+}
+
+func_19('Second');
+
+
 // TASK 20. Доработайте предыдущее задание.Допишите функцию func - 20 которая может принимать текст от пользователя и вставлять в список ul.u - 20. Также добавьте checkbox - важное, при этом созданный li получает класс.css - 5.
 
-function func_20() { }
+function func_20(text) {
 
+    let li = document.createElement('li');
+    let checkbox = document.createElement('input');
+    let ul = document.querySelector('.u-20');
+
+    checkbox.type = 'checkbox';
+    checkbox.value = 'Важное';
+
+    li.innerText = text;
+    li.prepend(checkbox);
+    ul.append(li);
+
+    checkbox.oninput = () => {
+        li.classList.toggle('css-5');
+    }
+
+}
+
+func_20('First');
 
 
 
