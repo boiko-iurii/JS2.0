@@ -180,7 +180,7 @@ let out16 = function (arr) {
 
     for (let i = 0; i < arr.length; i++) {
 
-        if (i % 2 == 0) {
+        if ((i + 1) % 2 == 0) {
 
             a1.push(arr[i]);
 
@@ -201,11 +201,34 @@ document.querySelector('.out-16').innerHTML = out16(d);
 
 // task 17 --------------------
 
-// let e = [3, 0, 2, 6, 0, 1, 3, 1, 9, 0, 2, 0];
+let w = [3, 0, 2, 6, 0, 1, 3, 1, 9, 0, 2, 0];
 
+function counter(arr, el) {
+
+    let count = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] == el) {
+            count += 1;
+        }
+    }
+
+    return count;
+
+}
+
+console.log(counter(w, 0));
 
 
 // task 18 --------------------
+
+function getMaxOfArray(numArray) {
+
+    return Math.max.apply(null, numArray);
+
+}
+
+console.log(getMaxOfArray(w));
 
 // task 19 --------------------
 
