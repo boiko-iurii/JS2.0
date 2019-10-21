@@ -222,14 +222,64 @@ console.log(counter(w, 0));
 
 // task 18 --------------------
 
-function getMaxOfArray(numArray) {
+let t = [3, 0, 2, 6, 0, 1, 3, 1, 9, 0, 2, 0];
 
-    return Math.max.apply(null, numArray);
+function getMaxOfArray(arr) {
+
+    let max = arr[0];
+
+    for (let i = 1; i < arr.length; i++) {
+
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+
+    }
+
+    return max;
 
 }
 
-console.log(getMaxOfArray(w));
+console.log(getMaxOfArray(t));
 
 // task 19 --------------------
 
+let f = [-3, 0, 45, 22, 123, -485, 98, 34];
+
+function getMaxIndexOfArray(arr) {
+
+    let max = arr[0];
+    let indexOfMax = 0;
+
+    for (let i = 1; i < arr.length; i++) {
+
+        if (arr[i] > max) {
+            max = arr[i];
+            indexOfMax = i;
+        }
+
+    }
+
+    return indexOfMax;
+
+}
+
+console.log(getMaxIndexOfArray(f));
+
 // task 20 --------------------
+
+function getSumOfArray(arr) {
+
+    let sum = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+
+        sum += arr[i];
+
+    }
+
+    return sum;
+
+}
+
+console.log(getSumOfArray(f));
