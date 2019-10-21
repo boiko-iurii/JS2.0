@@ -1,0 +1,22 @@
+html, body {
+    font-family: sans-serif;
+    background: #f8f8f8;
+}
+body {
+    margin: 20px;
+}
+h1 {
+    text-align: center;
+}
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+pre {
+    border: 1px solid #c0c0c0;
+    background: #fff;
+    padding: 5px;
+    font-family: monospace;
+}
