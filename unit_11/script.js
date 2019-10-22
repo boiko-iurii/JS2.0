@@ -1,16 +1,16 @@
 // task 1 --------------------
 
 let arr1 = [];
+let input1 = document.querySelector('.u-1');
+let out1 = document.querySelector('.out-1');
 
 document.querySelector('.u-2__push').onclick = () => {
 
-    let input1 = document.querySelector('.u-1');
-
-    console.log(func_1(input1, arr1));
+    out1.innerHTML = pushToArr(input1, arr1);
 
 }
 
-function func_1(input, arr) {
+function pushToArr(input, arr) {
 
     arr.push(input.value);
 
@@ -20,7 +20,35 @@ function func_1(input, arr) {
 
 // task 2 --------------------
 
+document.querySelector('.u-2__pop').onclick = () => {
+
+    out1.innerHTML = popArr(arr1);
+
+}
+
+function popArr(arr) {
+
+    arr.pop();
+
+    return arr;
+
+}
+
 // task 3 --------------------
+
+document.querySelector('.u-3__shift').onclick = () => {
+
+    out1.innerHTML = shiftArr(arr1);
+
+}
+
+function shiftArr(arr) {
+
+    arr.shift();
+
+    return arr;
+
+}
 
 // task 4 --------------------
 
