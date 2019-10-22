@@ -1,6 +1,6 @@
 // task 1 --------------------
 
-const arr1 = [];
+let arr1 = [];
 
 document.querySelector('.u-2__push').onclick = () => {
 
