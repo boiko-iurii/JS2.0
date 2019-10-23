@@ -12,7 +12,13 @@ document.querySelector('.u-2__push').onclick = () => {
 
 function pushToArr(input, arr) {
 
-    arr.push(input.value);
+    if (input.value.trim().length > 0) {
+        arr.push(input.value.trim());
+        input.value = '';
+    } else {
+        alert('Введите значение');
+        input.value = '';
+    }
 
     return arr;
 
@@ -52,7 +58,63 @@ function shiftArr(arr) {
 
 // task 4 --------------------
 
+document.querySelector('.u-4__unshift').onclick = () => {
+
+    out1.innerHTML = unshiftArr(arr1, input1);
+
+}
+
+function unshiftArr(arr, input) {
+
+    if (input.value.trim().length > 0) {
+        arr.unshift(input.value.trim());
+        input.value = '';
+    } else {
+        alert('Введите значение');
+        input.value = '';
+    }
+
+    return arr;
+
+}
+
 // task 5 --------------------
+
+let arr5 = [3, 14, 15, 92, 6, 54, 123, 87, 66, 43, 12, 90, 'hello'];
+
+document.querySelector('.u-5__splice').onclick = () => {
+
+    let start = document.querySelector('.f-5').value;
+    let count = document.querySelector('.s-5').value;
+    let out5 = document.querySelector('.out-5');
+
+    out5.innerHTML = spliceArr(arr5, start, count);
+
+}
+
+function spliceArr(arr, start, count) {
+
+    if (start.length > 0 && count.length > 0) {
+
+        start = parseInt(start);
+        count = parseInt(count);
+
+        arr.splice(start, count);
+
+        return arr;
+
+    }
+    else if (start.length == 0 && count.length > 0) {
+        return 'Введите значения индекса';
+    }
+    else if (start.length > 0 && count.length == 0) {
+        return 'Введите значения количества';
+    }
+    else {
+        return 'Введите значения индекса и количества';
+    }
+
+}
 
 // task 6 --------------------
 
