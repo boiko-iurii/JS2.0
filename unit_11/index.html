@@ -61,7 +61,7 @@
         </ol>
         <p>Выводит массив на страницу</p>
         <input type="text" class="i-6">
-        <button class="btn-6">push</button>
+        <button class="btn-6">funcPush</button>
         <div class="out-6"></div>
         <hr>
     </div>
@@ -71,7 +71,7 @@
             <li>удаляет последний элемент массива</li>
         </ol>
         <p>Выводит массив на страницу</p>
-        <button class="btn-7">pop</button>
+        <button class="btn-7">funcPop</button>
         <div class="out-7"></div>
         <hr>
     </div>
@@ -82,7 +82,7 @@
             <li>Создает новый массив где нулевым элементом выступает первый элемент исходного массива</li>
         </ol>
         <p>Выводит массив на страницу</p>
-        <button class="btn-8">shift</button>
+        <button class="btn-8">funcShift</button>
         <div class="out-8"></div>
         <hr>
     </div>
@@ -96,7 +96,7 @@
         </ol>
         <p>Выводит массив на страницу</p>
         <input type="text" class="i-9">
-        <button class="btn-9">unshift</button>
+        <button class="btn-9">funcUnShift</button>
         <div class="out-9"></div>
         <hr>
     </div>
@@ -106,6 +106,108 @@
         <pre>let arr10 = [2,4, 6, 8, 10, 'hello'];</pre>
         <button class="u-10__reverse">reverse</button>
         <div class="out-10"></div>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 11. </b>Создайте input.u-11__input и кнопку button.u-11__button. Объявите массив arr11. По нажатию на
+            кнопку, читайте содержимое input.u-11__input в переменную u11. Потом примените к массиву arr11 метод indexOf
+            ( читать за метод indexOf). Результат применения indexOf выводите на страницу в div.out-11. Последовательно
+            проверьте программу вводя в input числа 1, 3, 5, 12.</p>
+        <pre>let arr11 = [0, 2, 3, 7, 8, 5, 11];</pre>
+        <input type="text" class="u-11__input">
+        <button class="u-11__button">indexOf</button>
+        <div class="out-11"></div>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 12. </b>Напишите функцию funcIndexOf, которая эмулирует работу метода indexOf. Программа должна:</p>
+        <ol>
+            <li>читает содержимое input в переменную</li>
+            <li>Запускать цикл по массиву и сравнивать каждый элемент массива с введенным.</li>
+            <li>Если совпадение есть - останавливать цикл и выводить номер индекса на котором произошло совпадение.</li>
+            <li>Если совпадения нет выводить -1.</li>
+        </ol>
+        <input type="text" class="u-12__input">
+        <button class="u-12__button">funcIndexOf</button>
+        <div class="out-12"></div>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 13. </b>Напишите функцию funcReverse, которая эмулирует работу метода reverse. Программа должна:</p>
+        <ol>
+            <li>Создать новый пустой массив</li>
+            <li>Перебирать старый массив с конца (массив создайте сами)</li>
+            <li>По очереди по элементу присвоить значения в новый массив.</li>
+            <li>Вывести новый массив.</li>
+        </ol>
+        <button class="u-13__button">funcReverse</button>
+        <div class="out-13"></div>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 14. </b>Создайте инпут, куда пользователь может ввести число элементов в массиве. Создайте функцию,
+            которая прочитает введенное число и создаст массив такой длины, причем каждый элемент - это случайное число
+            от 0 до 100. Массивы выведите на страницу.</p>
+        <input type="number" class="u-14__input">
+        <button class="u-14__button">click</button>
+        <div class="out-14"></div>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 15. </b>Создайте массив arr15. Напишите функцию, которая создаст новый массив, в который входят
+            только четные элементы массива arr15 (элементы с четным индексом). Выведите на экран.</p>
+        <button class="u-15__button">click</button>
+        <div class="out-15"></div>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 16. </b>Создайте button.u-16__button. Объявите массив arr16_1 и arr16_2. По нажатию на кнопку
+            примените к массивам метод concat ( читать за метод concat). Результат применения concat выводите на
+            страницу в div.out-16.</p>
+        <pre>let arr16_1 = [3, 5, 7 ];<br>let arr16_2 = [2, 4, 6 ];</pre>
+        <button class="u-16__button">concat</button>
+        <div class="out-16"></div>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 17. </b>Напишите функцию funcConcat, которая эмулирует работу метода concat. Программа должна:</p>
+        <ol>
+            <li>Перебирает второй массив и его элементы добавляет в первый массив.</li>
+            <li>Выводит массив на страницу.</li>
+        </ol>
+        <button class="u-17__button">funcConcat</button>
+        <div class="out-17"></div>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 18. </b>Создайте button.u-18__button и input.u-18__input. Объявите массив arr18 . По нажатию на
+            кнопку примените к массивам метод includes, который проверяет есть ли в массиве значение введенное в input.
+            ( читать за метод includes). Результат применения includes выводите на страницу в div.out-18.</p>
+        <pre>let arr18 = [3, 5, 7, 11, 12, 13, 14 ];</pre>
+        <input type="text" class="u-18__input">
+        <button class="u-18__button">includes</button>
+        <div class="out-18"></div>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 19. </b>Напишите функцию funcIncludes, которая эмулирует работу метода includes. Программа должна:
+        </p>
+        <ol>
+            <li>Перебирает второй массив и сравнивать если введенный элемент совпал с текущим - прекращать работу цикла
+                и выводить true.</li>
+            <li>Если совпадений нет - false.</li>
+        </ol>
+        <input type="text" class="u-19__input">
+        <button class="u-19__button">funcIncludes</button>
+        <div class="out-19"></div>
+        <hr>
+    </div>
+    <div>
+        <p><b>Task 20. </b>Объявите массив arr20. Создайте кнопку, по нажатию которую к массиву применяется метод join (
+            читать за метод join). Результа выведите на страницу.
+        </p>
+        <button class="btn-20">join</button>
+        <div class="out-20"></div>
         <hr>
     </div>
 
