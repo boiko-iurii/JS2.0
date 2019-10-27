@@ -18,5 +18,25 @@ pre {
     border: 1px solid #c0c0c0;
     background: #fff;
     padding: 5px;
+}
+div[class*='out-'], pre {
     font-family: monospace;
+}
+
+.chessboard__container {
+    border: 1px solid #777;
+    display: inline-block;
+}
+.row {
+    display: flex;
+}
+.white {
+    background: #fff;
+}
+.black {
+    background: #000;
+}
+.white, .black {
+    width: 20px;
+    height: 20px;
 }
