@@ -6,7 +6,7 @@ const a1 = {
 };
 let out1 = '';
 
-for (key in a1) {
+for (let key in a1) {
     out1 += `${key} : ${a1[key]} <br>`;
 }
 
@@ -22,7 +22,7 @@ const a2 = {
 };
 let out2 = '';
 
-for (key in a2) {
+for (let key in a2) {
     if (a2[key].length > 4)
         out2 += `${key} : ${a2[key]} <br>`;
 }
@@ -39,7 +39,7 @@ const a3 = {
 };
 let out3 = '';
 
-for (key in a3) {
+for (let key in a3) {
     if (key.length > 4)
         out3 += `${key} : ${a3[key]} <br>`;
 }
@@ -56,7 +56,7 @@ const a4 = {
 };
 let out4 = '';
 
-for (key in a4) {
+for (let key in a4) {
     if (typeof a4[key] == 'number')
         out4 += `${key} : ${a4[key]} <br>`;
 }
@@ -73,7 +73,7 @@ const a5 = {
 };
 let out5 = 0;
 
-for (key in a5) {
+for (let key in a5) {
     out5 += a5[key];
 }
 
@@ -89,7 +89,7 @@ const a6 = {
 };
 let out6 = '';
 
-for (key in a6) {
+for (let key in a6) {
     out6 += `${key} : ${a6[key]},<br>`;
 }
 
@@ -113,7 +113,7 @@ document.querySelector('.btn-7').onclick = () => {
     keyInput.value = '';
     valInput.value = '';
 
-    for (key in a7) {
+    for (let key in a7) {
         out7 += `${key} : ${a7[key]},<br>`;
     }
 
@@ -126,16 +126,56 @@ document.querySelector('.btn-7').onclick = () => {
 document.querySelector('.btn-8').onclick = () => {
 
     let keyInput = document.querySelector('.u8-key__input');
+    let out8 = '';
 
     delete a7[keyInput.value];
 
     keyInput.value = '';
 
-    console.log(a7);
+    for (let key in a7) {
+        out8 += `${key} : ${a7[key]},<br>`;
+    }
+
+    document.querySelector('.out-8').innerHTML = out8;
 
 }
 
 // task 9 --------------------
+
+const a9 = {
+    a: 5,
+    b: 7,
+    g: 12
+}
+
+document.querySelector('.btn-9').onclick = () => {
+
+    let keyInput = document.querySelector('.u9-delete-value__input');
+    let out9 = '';
+
+    for (let key in a7) {
+
+        if (a7[key] == keyInput.value) {
+
+            let t = key;
+
+            delete a7[t];
+
+            for (let k in a7) {
+
+                out9 += `${k} : ${a7[k]},<br>`;
+
+            }
+
+            // break;
+
+        }
+    }
+    keyInput.value = '';
+
+    document.querySelector('.out-9').innerHTML = out9;
+
+}
 
 // task 10 --------------------
 
