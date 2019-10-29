@@ -97,27 +97,36 @@ document.querySelector('.out-6').innerHTML = out6;
 
 // task 7 --------------------
 
-const a7 = {};
+let a7 = {};
 
 document.querySelector('.btn-7').onclick = () => {
 
     let keyInput = document.querySelector('.u7-key__input');
     let valInput = document.querySelector('.u7-value__input');
+    let outer7 = document.querySelector('.out-7');
     let out7 = '';
-    let key = keyInput.value;
-    let val = valInput.value;
+    let key = keyInput.value.trim();
+    let val = valInput.value.trim();
 
-    if (val && key)
-        a7[key] = val;
+    if (key && key.length && val && val.length) {
+        if (val && key)
+            a7[key] = val;
 
-    keyInput.value = '';
-    valInput.value = '';
+        keyInput.value = '';
+        valInput.value = '';
 
-    for (let key in a7) {
-        out7 += `${key} : ${a7[key]},<br>`;
+        for (let key in a7) {
+            out7 += `${key} : ${a7[key]},<br>`;
+        }
+
+        outer7.innerHTML = out7;
     }
-
-    document.querySelector('.out-7').innerHTML = out7;
+    else if (key && key.length) {
+        outer7.innerText = 'Введите значение';
+    }
+    else {
+        outer7.innerText = 'Введите ключ';
+    }
 
 }
 
@@ -126,58 +135,104 @@ document.querySelector('.btn-7').onclick = () => {
 document.querySelector('.btn-8').onclick = () => {
 
     let keyInput = document.querySelector('.u8-key__input');
+    let outer8 = document.querySelector('.out-8');
     let out8 = '';
 
-    delete a7[keyInput.value];
+    let el = keyInput.value.trim();
 
     keyInput.value = '';
 
-    for (let key in a7) {
-        out8 += `${key} : ${a7[key]},<br>`;
-    }
+    if (el && a7[el]) {
 
-    document.querySelector('.out-8').innerHTML = out8;
+        delete a7[el];
+
+        for (let key in a7) {
+            out8 += `${key} : ${a7[key]},<br>`;
+        }
+
+        outer8.innerHTML = out8;
+
+    }
+    else if (el && !a7[el]) {
+
+        outer8.textContent = 'Такого ключа в массиве не существует';
+
+    }
+    else {
+
+        outer8.textContent = 'Введите значение';
+
+    }
 
 }
 
 // task 9 --------------------
 
-const a9 = {
-    a: 5,
-    b: 7,
-    g: 12
-}
-
 document.querySelector('.btn-9').onclick = () => {
 
     let keyInput = document.querySelector('.u9-delete-value__input');
+    let outer9 = document.querySelector('.out-9');
     let out9 = '';
+    let el = keyInput.value.trim();
 
-    for (let key in a7) {
-
-        if (a7[key] == keyInput.value) {
-
-            let t = key;
-
-            delete a7[t];
-
-            for (let k in a7) {
-
-                out9 += `${k} : ${a7[k]},<br>`;
-
-            }
-
-            // break;
-
-        }
-    }
     keyInput.value = '';
 
-    document.querySelector('.out-9').innerHTML = out9;
+    if (el && el.length) {
+
+        for (let key in a7) {
+
+            if (a7[key] == el) {
+
+                let t = key;
+
+                delete a7[t];
+                out9 = '';
+
+                for (let k in a7) {
+                    out9 += `${k} : ${a7[k]},<br>`;
+                }
+
+                break;
+
+            }
+            else {
+                out9 = 'Такое значение в массиве не существует.';
+            }
+        }
+        outer9.innerHTML = out9;
+
+    }
+    else {
+        outer9.textContent = 'Введите значение';
+    }
 
 }
 
 // task 10 --------------------
+
+function existKey(key, arr) {
+
+    if (key && arr[key])
+        return true;
+    else
+        return false;
+
+}
+
+document.querySelector('.btn-10').onclick = () => {
+
+    let keyInput = document.querySelector('.u10-has-key__input');
+    let outer10 = document.querySelector('.out-10');
+    let key = keyInput.value.trim();
+
+    keyInput.value = '';
+
+    if (key.length)
+        outer10.innerText = existKey(key, a7);
+    else
+        outer10.innerText = 'Введите значение';
+
+}
 
 // task 11 --------------------
 
