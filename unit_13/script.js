@@ -312,26 +312,24 @@ document.querySelector('.btn-14').onclick = () => {
 
     let station = document.querySelector('.u14-find-station').value;
     let out = '';
+    let branch = getKeyObj(a11, station);
 
-    for (let branch in a11) {
-
-        for (let i = 0; i < a11[branch].length; i++) {
-
-            if (a11[branch][i] == station) {
-                if (branch == 'red')
-                    out = 'Станция находится на крассной ветке.';
-                else if (branch == 'green')
-                    out = 'Станция находится на зеленой ветке.';
-                else if (branch == 'blue')
-                    out = 'Станция находится на синей ветке.';
-            }
-
-        }
-
-    }
+    if (branch == 'red')
+        out = 'Станция находится на крассной ветке.';
+    else if (branch == 'green')
+        out = 'Станция находится на зеленой ветке.';
+    else if (branch == 'blue')
+        out = 'Станция находится на синей ветке.';
 
     document.querySelector('.out-14').innerHTML = out;
 
+}
+
+function getKeyObj(obj, value) {
+    for (let key in obj) {
+        if (obj[key].indexOf(value) != -1)
+            return key;
+    }
 }
 
 // task 15 --------------------
@@ -341,46 +339,50 @@ document.querySelector('.btn-15').onclick = () => {
     let firstStation = document.querySelector('.u15-first-station').value;
     let secondStation = document.querySelector('.u15-second-station').value;
     let distance = 0;
-    let out = '';
-    let stationA = 0;
-    let stationB = 0;
+    let a = getKeyObj(a11, firstStation);
+    let stationA = a11[a].indexOf(firstStation)
+    let b = getKeyObj(a11, secondStation);
+    let stationB = a11[b].indexOf(secondStation)
 
-    for (let branch in a11) {
+    if (a == b)
+        if (stationA > stationB)
+            distance = stationA - stationB - 1;
+        else if (stationA < stationB)
+            distance = stationB - stationA - 1;
 
-        // if(a11[branch].indexOf(firstStation) == -1 && )
-        // console.log(a11[branch].indexOf(firstStation));
-        // console.log(a11[branch].indexOf(secondStation));
-        // console.log(branch);
-        // break;
-
-        for (let i = 0; i < a11[branch].length; i++) {
-
-            if (a11[branch][i] == firstStation) {
-                stationA = [i];
-                console.log('stationA', stationA);
-            }
-            if (a11[branch][i] == secondStation) {
-                stationB = [i]
-                console.log('stationB', stationB);
-            }
-
-
-            if (stationA > stationB)
-                distance = stationA - stationB - 1;
-            else if (stationA < stationB)
-                distance = stationB - stationA - 1;
-        }
-
-        //indexOf
-    }
-
-    console.log(distance);
-
-    document.querySelector('.out-15').innerHTML = out;
+    document.querySelector('.out-15').innerHTML = distance;
 
 }
 
 // task 16 --------------------
+
+document.querySelectorAll('.u16-radio').forEach(function (element) {
+
+    let select = document.querySelector('.u16-select');
+
+    element.oninput = function () {
+
+        select.innerHTML = '';
+
+        for (let i = 0; i < a11[this.value].length; i++) {
+
+            addOption(select, a11[this.value][i]);
+
+        }
+
+    }
+
+});
+
+function addOption(select, value) {
+
+    let option = document.createElement('option');
+
+    option.innerText = value;
+    option.value = value;
+    select.append(option);
+
+}
 
 // task 17 --------------------
 
