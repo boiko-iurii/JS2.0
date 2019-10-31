@@ -244,13 +244,16 @@ const a11 = {
 
 let out11 = '';
 
-for (let line in a11) {
+for (let branch in a11) {
 
-    out11 += line + ': [';
+    out11 += branch + ': [';
 
-    for (let i = 0; i < a11[line].length; i++) {
+    for (let i = 0; i < a11[branch].length; i++) {
 
-        out11 += `${a11[line][i]}, `;
+        if ([i] == a11[branch].length - 1)
+            out11 += `${a11[branch][i]} `;
+        else
+            out11 += `${a11[branch][i]}, `;
 
     }
 
@@ -264,16 +267,16 @@ document.querySelector('.out-11').innerHTML = out11;
 
 document.querySelector('.btn-12').onclick = () => {
 
-    let line = document.querySelector('.u12-branch').value;
+    let branch = document.querySelector('.u12-branch').value;
 
     let out = '';
 
-    for (let i = 0; i < a11[line].length; i++) {
+    for (let i = 0; i < a11[branch].length; i++) {
 
-        if ([i] == a11[line].length - 1)
-            out += `${[i + 1]}. ${a11[line][i]}.`;
+        if ([i] == a11[branch].length - 1)
+            out += `${[i + 1]}. ${a11[branch][i]}.`;
         else
-            out += `${[i + 1]}. ${a11[line][i]},<br>`;
+            out += `${[i + 1]}. ${a11[branch][i]},<br>`;
 
 
     }
@@ -282,11 +285,100 @@ document.querySelector('.btn-12').onclick = () => {
 
 }
 
+
 // task 13 --------------------
+
+document.querySelector('.u13-reverse').onclick = () => {
+
+    let branch = document.querySelector('.u12-branch').value;
+    let out = '';
+
+    for (let i = 0, k = a11[branch].length - 1; i < a11[branch].length, k >= 0; i++ , k--) {
+
+        if ([i] == a11[branch].length - 1)
+            out += `${[i + 1]}. ${a11[branch][k]}.`;
+        else
+            out += `${[i + 1]}. ${a11[branch][k]},<br>`;
+
+    }
+
+    document.querySelector('.out-13').innerHTML = out;
+
+}
 
 // task 14 --------------------
 
+document.querySelector('.btn-14').onclick = () => {
+
+    let station = document.querySelector('.u14-find-station').value;
+    let out = '';
+
+    for (let branch in a11) {
+
+        for (let i = 0; i < a11[branch].length; i++) {
+
+            if (a11[branch][i] == station) {
+                if (branch == 'red')
+                    out = 'Станция находится на крассной ветке.';
+                else if (branch == 'green')
+                    out = 'Станция находится на зеленой ветке.';
+                else if (branch == 'blue')
+                    out = 'Станция находится на синей ветке.';
+            }
+
+        }
+
+    }
+
+    document.querySelector('.out-14').innerHTML = out;
+
+}
+
 // task 15 --------------------
+
+document.querySelector('.btn-15').onclick = () => {
+
+    let firstStation = document.querySelector('.u15-first-station').value;
+    let secondStation = document.querySelector('.u15-second-station').value;
+    let distance = 0;
+    let out = '';
+    let stationA = 0;
+    let stationB = 0;
+
+    for (let branch in a11) {
+
+        // if(a11[branch].indexOf(firstStation) == -1 && )
+        // console.log(a11[branch].indexOf(firstStation));
+        // console.log(a11[branch].indexOf(secondStation));
+        // console.log(branch);
+        // break;
+
+        for (let i = 0; i < a11[branch].length; i++) {
+
+            if (a11[branch][i] == firstStation) {
+                stationA = [i];
+                console.log('stationA', stationA);
+            }
+            if (a11[branch][i] == secondStation) {
+                stationB = [i]
+                console.log('stationB', stationB);
+            }
+
+
+            if (stationA > stationB)
+                distance = stationA - stationB - 1;
+            else if (stationA < stationB)
+                distance = stationB - stationA - 1;
+        }
+
+        //indexOf
+    }
+
+    console.log(distance);
+
+    document.querySelector('.out-15').innerHTML = out;
+
+}
 
 // task 16 --------------------
 
