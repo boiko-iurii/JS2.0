@@ -1,0 +1,47 @@
+html, body {
+    font-family: sans-serif;
+}
+body {
+    margin: 20px;
+}
+h1 {
+    text-align: center;
+}
+
+.contaner {
+    width: 100%;
+    max-width: 960px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.row {
+    /* margin-left: -15px; */
+    display: flex;
+    justify-content: center;
+}
+.col {
+    width: 250px;
+    height: 400px;
+    background: #fff;
+    border: 2px solid #1d919d;
+    text-align: center;
+}
+.city,
+.country {
+    color: #1d919d;
+}
+.city {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+.country {
+    font-size: 12px;
+}
+.cloudy {
+
+}
+.bottom {
+    display: flex;
+    justify-content: space-around;
+}
