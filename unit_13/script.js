@@ -257,7 +257,7 @@ for (let branch in a11) {
 
     }
 
-    out11 += ']<br>';
+    out11 += '],<br>';
 
 }
 
@@ -400,24 +400,147 @@ for (let branch in a17) {
 
     for (let i = 0; i < a17[branch].length; i++) {
 
-        // if ([i] == a17[branch].length - 1)
-        //     out17 += `${a17[branch][i]} `;
-        // else
-        out17 += `${a17[branch][i]}, `;
+        if ([i] == a17[branch].length - 1) {
 
+            if (a17[branch][i][1] == 0 || a17[branch][i][1] == 1) {
+
+                out17 += `[${a17[branch][i][0]}, ${a17[branch][i][1]}]`;
+
+            } else {
+
+                out17 += `${a17[branch][i]} `;
+            }
+        }
+        else {
+            if (a17[branch][i][1] == 0 || a17[branch][i][1] == 1) {
+
+                out17 += `[${a17[branch][i][0]}, ${a17[branch][i][1]}], `;
+
+            } else {
+
+                out17 += `${a17[branch][i]}, `;
+
+            }
+        }
     }
 
-    out17 += ']<br>';
-
+    out17 += '],<br>';
 
 }
-console.log(a17.red[0].length);
-console.log(a17.red[1].length);
 
 document.querySelector('.out-17').innerHTML = out17;
 
 // task 18 --------------------
 
+let out18 = '';
+
+for (let branch in a17) {
+
+    for (let i = 0; i < a17[branch].length; i++) {
+
+        if (a17[branch][i][1] == 1)
+            out18 += `${a17[branch][i][0]}, `;
+
+    }
+
+}
+
+document.querySelector('.out-18').innerHTML = out18;
+
 // task 19 --------------------
 
+const a19 = {
+    'Китай': {
+        'столица': "Пекин",
+        'население': '1349585838 чел.',
+        'площадь': '9596961 кв.км',
+    },
+    'Грузия': {
+        'столица': "Тбилиси",
+        'население': '4555911 чел.',
+        'площадь': '69700 кв.км',
+    },
+    'Япония': {
+        'столица': "Токио",
+        'население': '127253075 чел.',
+        'площадь': '377915 кв.км',
+    },
+    'Турция': {
+        'столица': "Анкара",
+        'население': '79749461 чел.',
+        'площадь': '783562 кв.км',
+    },
+    'Казахстан': {
+        'столица': "Нур-Султан",
+        'население': '17736896 чел.',
+        'площадь': '2724900 кв.км',
+    },
+    'Армения': {
+        'столица': "Ереван",
+        'население': '2974184 чел.',
+        'площадь': '29743 кв.км',
+    },
+    'Катар': {
+        'столица': "Доха",
+        'население': '2042444 чел.',
+        'площадь': '11586 кв.км',
+    },
+    'Малайзия': {
+        'столица': "Куала-Лумпур",
+        'население': '29628392 чел.',
+        'площадь': '329847 кв.км',
+    },
+    'Мьянма': {
+        'столица': "Нейпьидо",
+        'население': '55167330 чел.',
+        'площадь': '676578 кв.км',
+    },
+    'Индия': {
+        'столица': "Нью-Дели",
+        'население': '1205073612 чел.',
+        'площадь': '3287263 кв.км',
+    },
+}
+
+let out19 = '';
+
+for (let country in a19) {
+
+    out19 += `${country}:<br>`;
+
+    for (let data in a19[country]) {
+
+        out19 += `&nbsp;&nbsp;&nbsp;&nbsp;${data} : ${a19[country][data]},<br>`;
+
+    }
+
+    out19 += '<br>';
+
+}
+document.querySelector('.out-19').innerHTML = out19;
+
+
 // task 20 --------------------
+
+let select20 = document.querySelector('.u20-countries');
+
+for (let country in a19) {
+
+    addOption(select20, country);
+
+}
+
+document.querySelector('.btn-20').onclick = function () {
+
+    let country = select20.value;
+    let out20 = '';
+
+    for (let data in a19[country]) {
+
+        out20 += `${data} : ${a19[country][data]}<br>`;
+
+    }
+
+    document.querySelector('.out-20').innerHTML = out20;
+
+}
