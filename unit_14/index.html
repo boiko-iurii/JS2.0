@@ -7,37 +7,39 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
     <title>Unit 14</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap&subset=cyrillic"
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap&subset=cyrillic"
         rel="stylesheet">
 </head>
 
 <body>
-    <h1 class="h1">[Unit 14]</h1>
     <div class="container">
         <div class="row">
-            <label for="cities">Выберите город из списка:</label>
-            <select class="cities-list">
-                <option value="703448">Киев</option>
-                <option value="706483">Харьков</option>
-                <option value="698740">Одесса</option>
-                <option value="709930">Днипро</option>
-                <option value="687700">Запорожье</option>
-                <option value="701822">Мариуполь</option>
-                <option value="700568">Николаев</option>
-                <option value="689558">Винница</option>
-                <option value="706448">Херсон</option>
-                <option value="696643">Полтава</option>
-                <option value="706369">Хмельницкий</option>
-                <option value="710741">Черновцы</option>
-                <option value="686967">Житомир</option>
-                <option value="692194">Сумы</option>
-                <option value="7046809">Ровно</option>
-                <option value="707471">Ивано-Франковск</option>
-                <option value="691650">Тернополь</option>
-                <option value="702569">Луцк</option>
-                <option value="690548">Ужгород</option>
-            </select>
-            <button class="btn">click</button>
+            <div>
+                <label for="cities">Выберите город из списка:</label>
+                <br>
+                <select class="cities-list">
+                    <option value="703448">Киев</option>
+                    <option value="706483">Харьков</option>
+                    <option value="698740">Одесса</option>
+                    <option value="709930">Днипро</option>
+                    <option value="687700">Запорожье</option>
+                    <option value="701822">Мариуполь</option>
+                    <option value="700568">Николаев</option>
+                    <option value="689558">Винница</option>
+                    <option value="706448">Херсон</option>
+                    <option value="696643">Полтава</option>
+                    <option value="706369">Хмельницкий</option>
+                    <option value="710741">Черновцы</option>
+                    <option value="686967">Житомир</option>
+                    <option value="692194">Сумы</option>
+                    <option value="7046809">Ровно</option>
+                    <option value="707471">Ивано-Франковск</option>
+                    <option value="691650">Тернополь</option>
+                    <option value="702569">Луцк</option>
+                    <option value="690548">Ужгород</option>
+                </select>
+                <button class="btn">Choose</button>
+            </div>
         </div>
         <div class="row">
             <div class="col">
@@ -45,23 +47,23 @@
                 <div class="country">UA</div>
                 <div class="middle-content">
                     <div class="middle-content__img">
-                        <img src="" alt="">
+                        <img src="https://templates.cms-guide.com/51706/images/page-1_img-1.jpg" alt="">
                     </div>
                     <div class="middle-content__data">
-                        <div class="middle-content__temperature">25&deg;</div>
+                        <div class="middle-content__temperature">+25&deg;</div>
                         <div class="middle-content__hi">Hi&nbsp;<span>27&deg;</span></div>
                         <div class="middle-content__lo">Lo&nbsp;<span>21&deg;</span></div>
-                        <div class="middle-content__weather-descr">Intermittent Clouds</div>
+                        <div class="middle-content__weather-descr">intermittent clouds</div>
                     </div>
                 </div>
-                <div class="bottom-content">
-                    <div class="feels-like"></div>
-                    <div class="humidity"></div>
-                    <div class="wind"></div>
-                    <div class="sunrise"></div>
-                    <div class="sunset"></div>
-                    <div class="barometer"></div>
-                </div>
+                <ul class="bottom-content">
+                    <li class="feels-like"><b>Feels like:</b><span>26&deg;</span></li>
+                    <li class="humidity"><b>Humidity:</b><span>71%</span></li>
+                    <li class="wind"><b>Wind:</b><span>S 10 mph</span></li>
+                    <li class="sunrise"><b>Sunrise:</b><span>6:31 AM</span></li>
+                    <li class="sunset"><b>Sunset:</b><span>8:52 PM</span></li>
+                    <li class="barometer"><b>Barometer:</b><span>30.03" Hg</span></li>
+                </ul>
             </div>
         </div>
 
