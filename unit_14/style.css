@@ -38,8 +38,10 @@ h1 {
     font-weight: 700;
 }
 .middle-content {
+    height: 139px;
     display: flex;
     background: #f1f1f1;
+    border-radius: 5px;
     margin-top: 5px;
     margin-bottom: 30px;
     padding: 20px 0;
