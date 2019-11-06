@@ -16,9 +16,8 @@ let a2_res,
 
 function t1() {
     let a1 = new Set();
-    a1.add(3);
-    a1.add(7);
-    a1.add(23);
+    a1.add(13);
+    a1.add(16);
     a1.add('hello');
     console.log(a1);
 }
@@ -28,21 +27,11 @@ document.querySelector('.b-1').onclick = t1;
 // Task 2 ============================================
 /*  Создайте input куда пользователь может вводить элементы и кнопку. По нажатию на кнопку значение из input добавляется в set. Set выводится в консоль.Результат присвойте переменной a2_res. Действия запускаются при вызове функции t2. */
 
-let a2 = new Set();
-
 function t2(elem) {
-    if (elem) {
-        a2_res = a2.add(elem);
-        console.log(a2);
-    }
-    else {
-        alert('Введите значение');
-    }
 }
 
 document.querySelector('.b-2').onclick = function () {
     t2(document.querySelector('.i-2').value);
-    document.querySelector('.i-2').value = '';
 }
 
 
@@ -50,18 +39,11 @@ document.querySelector('.b-2').onclick = function () {
 /* Добавьте к предыдущему заданию кнопку удалить. При нажатии кнопки читаете содержимое input и удаляете его из Set. Если input пустой - выводите ошибку(alert). */
 
 function t3(elem) {
-    if (elem) {
-        a2_res = a2.delete(elem);
-        console.log(a2);
-    }
-    else {
-        alert('Введите значение');
-    }
+
 }
 
 document.querySelector('.b-3').onclick = function () {
     t3(document.querySelector('.i-3').value);
-    document.querySelector('.i-3').value = '';
 }
 
 
@@ -70,12 +52,11 @@ document.querySelector('.b-3').onclick = function () {
 */
 
 function t4(elem) {
-    return a2.has(elem);
+
 }
 
 document.querySelector('.b-4').onclick = function () {
     let res = t4(document.querySelector('.i-4').value);
-    document.querySelector('.i-4').value = '';
     console.log(res);
 }
 
@@ -87,8 +68,6 @@ document.querySelector('.b-4').onclick = function () {
 
 function t5() {
     let size;
-    size = a2.size;
-    document.querySelector('.out-5').textContent = size;
     return size;
 }
 
@@ -102,12 +81,9 @@ document.querySelector('.b-5').onclick = t5;
 let a6 = [3, 4, 3, 2, 4, 56, 1, 23];
 
 function t6(a6) {
-    a6 = new Set(a6);
-    let size = a6.size;
 
-    document.querySelector('.out-6').textContent = size;
 
-    return size;
+    // return size;
 }
 
 document.querySelector('.b-6').onclick = function () {
@@ -119,12 +95,6 @@ document.querySelector('.b-6').onclick = function () {
 /*  Создайте input куда пользователь может ввести пароль и кнопку - проверить. Проверяйте с помощью Set, чтобы пользователь использовал в пароле только не повторяющиеся символы. Логика решения - получаем строку из input - и преобразуем ее в массив (arr.split('')). Считаем длину массива. На основе массива создаем  Set. Сравниваем размеры массива и Set. Функция должна возвращать true или false. Запуск - по нажатию кнопки b-7. */
 
 function t7(login, pass) {
-
-    pass = pass.split('');
-
-    let chekPass = new Set(pass);
-
-    return (pass.length === chekPass.size && chekPass.size > 0) ? true : false;
 
 }
 
