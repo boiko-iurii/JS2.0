@@ -138,10 +138,27 @@ document.querySelector('.b-7').onclick = function () {
 // Task 8 ============================================
 /* Создайте набор set a8. Напишите функцию, которая принимает set в качестве параметра и четные элементы из набора добавляет в массив a8_res. После завершения операции - выводит a8_res на страницу. Запуск - по нажатию кнопки b-8. */
 
-// let a8 = 
-// a8.add...
+let a8 = new Set();
+a8.add(2);
+a8.add(5);
+a8.add(4);
+a8.add('jj');
+a8.add(54);
+a8.add(true);
+a8.add(15);
+a8.add('hello');
+a8.add(false);
 
 function t8(a8) {
+
+    a8 = Array.from(a8);
+
+    for (let i = 0; i < a8.length; i++) {
+        if (i % 2 == 0)
+            a8_res.push(a8[i]);
+    }
+
+    document.querySelector('.out-8').textContent = a8_res;
 
 }
 
@@ -153,9 +170,24 @@ document.querySelector('.b-8').onclick = function () {
 // Task 9 ============================================
 /*  Создайте набор set a9. Напишите функцию, которая принимает set в качестве параметра присваивает a9_res так, что порядок элементов в a9_res обратный a9. Выведите a9_res на страницу. Действия должны запускаться при вызове функции t9.*/
 
-// let a9 = 
+let a9 = new Set();
+
+a9.add(1);
+a9.add(2);
+a9.add(3);
+a9.add(4);
+a9.add(5);
+a9.add(6);
+a9.add(7);
+a9.add(8);
+a9.add(9);
 
 function t9(a9) {
+
+    a9 = Array.from(a9);
+    a9_res = a9.reverse();
+
+    document.querySelector('.out-9').textContent = a9_res;
 
 }
 
