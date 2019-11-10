@@ -8,8 +8,7 @@ let a2_res,
     a16_res = {},
     a18_res = {},
     s20_res,
-    s21_res
-    ;
+    s21_res;
 
 // Task 1 ============================================
 /* Создайте новый Set. Добавьте в него через add элементы. Выведите в консоль.  */
@@ -209,8 +208,25 @@ let a10 = [5, 7, 9, 11, 13, 15, 5, 7, 5, 2, 3, 7, 13];
 
 function t10(a10) {
 
+    let out10 = '';
+    let b10 = new Set(a10);
 
-    console.log(a10_res);
+    for (let item of b10) {
+        let counter = 0;
+
+        for (let i = 0; i < a10.length; i++) {
+
+            if (item == a10[i]) {
+                counter += 1;
+            }
+
+        }
+        out10 += `"${item}" : ${counter},<br>`;
+
+    }
+
+    document.querySelector('.out-10').innerHTML = out10;
+
 }
 
 document.querySelector('.b-10').onclick = function () {
@@ -225,11 +241,17 @@ document.querySelector('.b-10').onclick = function () {
 
 function t11(a11) {
 
+    if (a11_res.indexOf(a11) == -1 && a11) {
+        a11_res.push(a11);
+    }
+
+    document.querySelector('.out-11').textContent = a11_res;
 
 }
 
 document.querySelector('.b-11').onclick = function () {
     t11(document.querySelector('.i-11').value);
+    document.querySelector('.i-11').value = '';
 }
 
 
@@ -237,9 +259,12 @@ document.querySelector('.b-11').onclick = function () {
 /*  Напишите функцию, которая принимает в качестве параметра набор set и преобразует его в массив, результат выводит на страницу и присваивает a12_res. Действия должны запускаться при вызове функции t12.
  */
 
-// let a12 = new
+let a12 = new Set('string');
 
 function t12(a12) {
+
+    a12_res = Array.from(a12);
+    document.querySelector('.out-12').textContent = a12_res;
 
 }
 
@@ -251,11 +276,16 @@ document.querySelector('.b-12').onclick = () => t12(a12);
     Действия должны запускаться при вызове функции t13.
  */
 
-// let set13 = 
-// let elem13 = 
+let set13 = new Set('string');
+let elem13 = document.querySelector('.out-13');
 
 function t13(set13, elem13) {
 
+    for (let element of set13) {
+
+        elem13.textContent += `${element}, `;
+
+    }
 
 }
 
@@ -271,12 +301,17 @@ document.querySelector('.b-13').onclick = () => {
         Т.е. ввели в качестве разделителя дефис и вывод на страницу 1-2-3- (без пробелов).
  */
 
-// let set14 = 
-// let elem14 = 
-// let sep14 = '-'
+let set14 = new Set('string');
+let elem14 = document.querySelector('.out-14');
+let sep14 = '-';
 
-function t14(a14) {
+function t14(a14, element, sep) {
 
+    for (element of a14) {
+
+        elem14.textContent += `${element}${sep}`;
+
+    }
 
 }
 
@@ -298,6 +333,21 @@ let a15 = [
 
 function t15(a15) {
 
+    let out15 = '';
+
+    a15_res = new Set();
+
+    for (let i = 0; i < a15.length; i++) {
+        a15_res.add(a15[i]);
+    }
+
+    for (let element of a15_res) {
+        for (let i = 0; i < element.length; i++) {
+            out15 += `${element[i]}, `;
+        }
+    }
+
+    document.querySelector('.out-15').textContent = out15;
 
 }
 
@@ -327,6 +377,21 @@ let a16 = [
 
 function t16(a16) {
 
+    let out16 = '';
+
+    a16_res = new Set();
+
+    for (let i = 0; i < a16.length; i++) {
+        a16_res.add(a16[i]);
+    }
+
+    for (let element of a16_res) {
+        for (let key in element) {
+            out16 += `${key} : ${element[key]},`;
+        }
+    }
+
+    document.querySelector('.out-16').textContent = out16;
 
 }
 
@@ -342,21 +407,31 @@ document.querySelector('.b-16').onclick = function () {
 
 function t17() {
     let u17 = 'Primer';
+    let set17 = new Set(u17);
+
+    console.log(set17);
 
 }
 
 document.querySelector('.b-17').onclick = t17;
 
 // Task 18 ============================================
-/*  
-    Очень сложное! Можно пропустить без последствий! Напишите функцию, которая принимает строку и считает сколько раз встречается та либо инная буква. Результат в виде ассоциативного массива присваивает в переменуню a18_res. Данную функцию можно использовать для анализа текста.
-    Действия должны запускаться при вызове функции t18.
+/*
+    Переберите массив a18 = [5, 7, 9, 11, 13, 15], c помощью цикла for of.Выведите на страницу в виде ключ - значение(разделены дефисом без пробелов).В конце строки - br.Результирующую строку присвойте a18_res.Действия должны запускаться при вызове функции t18.
  */
 
-let a18 = 'Hello';
+let a18 = [5, 7, 9, 11, 13, 15];
 
 function t18(a18) {
 
+    let keys = Object.keys(a18);
+    let out18 = '';
+
+    for (let el of a18) {
+        out18 += `${a18.indexOf(el)}-${el}<br>`;
+    }
+
+    document.querySelector('.out-18').innerHTML = out18;
 
 }
 
@@ -367,9 +442,18 @@ document.querySelector('.b-18').onclick = function () { t18(a18) };
     Действия должны запускаться при вызове функции t19.
  */
 
-// let a19 = 
+let a19 = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
 
-function t19() {
+function t19(a19) {
+
+    let out19 = '';
+    let arr19 = Array.from(a19);
+
+    for (let i = 1; i < arr19.length; i += 2) {
+        out19 += `${arr19[i]}, `;
+    }
+
+    document.querySelector('.out-19').textContent = out19;
 
 }
 
@@ -380,9 +464,40 @@ document.querySelector('.b-19').onclick = () => { t19(a19) };
  */
 
 function t20(a20) {
+    s20_res = new Set();
+    s21_res = new Set();
+    for (let i = 0; i < a20.length; i++) {
+        if (i % 2 == 0)
+            s20_res.add(a20[i]);
+        else
+            s21_res.add(a20[i]);
+    }
+    console.log('четные по индексу', s20_res);
+    console.log('нечетные по индексу', s21_res);
 }
 
 document.querySelector('.b-20').onclick = function () {
-    // let arr20 = 
+    let arr20 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     t20(arr20);
+}
+
+// Задачи на прокачку
+// Task 1 ============================================!!!
+/*
+    Переберите массив a2 = [5, 7, 9, 11, 13, 15], c помощью цикла for. Выведите на страницу в виде ключ - значение. Разделение между ключем и значением пользователь может выбирать из выпадающего списка (пробел, дефис, две точки).
+ */
+
+let a22 = [5, 7, 9, 11, 13, 15];
+
+document.querySelector('.b-22').onclick = () => {
+
+    let sign = document.querySelector('#sign').value;
+    let out = '';
+
+    for (let i = 0; i < a22.length; i++) {
+        out += `${i}${sign}${a22[i]}<br>`;
+    }
+
+    document.querySelector('.out-22').innerHTML = out;
+
 }
