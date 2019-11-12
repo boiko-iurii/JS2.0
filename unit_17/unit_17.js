@@ -5,9 +5,7 @@ let a1_res = [], a2_res = [], a3_res = [], a4_res = [], b1_res = [], b6_res = []
 
 function t1() {
     let a1 = [4, 5, 6, 7, 12, 34, 56, 78, 90, 11];
-    let out = a1.map(elem => {
-        a1_res.push(elem * 2);
-    });
+    a1_res = a1.map(element => element * 0.5);
     document.querySelector('.out-1').innerHTML = a1_res;
 }
 
@@ -18,7 +16,9 @@ document.querySelector('.b-1').onclick = t1;
 запускаться при вызове функции t2.*/
 
 function t2() {
-
+    let a2 = [2, 3, 4, 5, 10, 11, 12];
+    a2_res = a2.map(element => Math.pow(element, 2));
+    document.querySelector('.out-2').innerHTML = a2_res;
 }
 
 document.querySelector('.b-2').onclick = t2;
@@ -28,7 +28,9 @@ document.querySelector('.b-2').onclick = t2;
 /*  Дан массив a3 = [4,"3",6,7,"12",34,"56",78,90,11] - с помощью map переберите массив и создайте новый массив a3_res куда добавьте все элементы приведенные к числу. Действия должны запускаться при вызове функции t3. */
 
 function t3() {
-
+    let a3 = [4, "3", 6, 7, "12", 34, "56", 78, 90, 11];
+    a3_res = a3.map(element => parseInt(element));
+    document.querySelector('.out-3').innerHTML = a3_res;
 }
 
 document.querySelector('.b-3').onclick = t3;
@@ -38,7 +40,15 @@ document.querySelector('.b-3').onclick = t3;
 /*  Следующая задача проще будет решаться через метод forEach, который мы изучим во второй части урока! Сейчас мы делаем костыль, для отработки навыков работы с map. Дан массив a4 = [4,"3",6,7,"12",34,"56",78,90,11] - с помощью map переберите массив и создайте новый массив a4_res куда добавьте только числа из массива a4. Действия должны запускаться при вызове функции t4. Действия должны запускаться при вызове функции t4.*/
 
 function t4() {
-
+    let a4 = [4, "3", 6, 7, "12", 34, "56", 78, 90, 11];
+    a4_res = a4.map((element, arr) => {
+        if (typeof (element) === 'number')
+            return element;
+        else
+            // delete element;
+            console.log(element)
+    });
+    document.querySelector('.out-4').innerHTML = a4_res;
 }
 
 document.querySelector('.b-4').onclick = t4;
