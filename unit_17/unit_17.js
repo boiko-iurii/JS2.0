@@ -94,7 +94,16 @@ document.querySelector('.b-7').onclick = t7;
 
 function t8() {
     let b8 = [3, 14, 15, 92, "6", "5", "hello", 32];
-    b8_res = b8.filter((element, index) => index % 2 == 0);
+    let out = b8.filter((element) => {
+        if (typeof element === 'number')
+            return element % 2 == 0;
+    });
+    for (let i = 0; i < out.length; i++) {
+        for (let k = 0; k < b8.length; k++) {
+            if (out[i] == b8[k])
+                b8_res.push(k);
+        }
+    }
     document.querySelector('.out-8').innerHTML = b8_res;
 }
 
