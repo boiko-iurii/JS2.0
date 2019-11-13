@@ -78,9 +78,7 @@ document.querySelector('.b-4').onclick = t4;
 function t5() {
     let div = document.createElement('div');
     let divs = document.getElementsByClassName('u-3');
-
-    divs.push(div);
-    console.log(divs);
+    document.querySelector('.out-5').textContent = 'Поскольку divs это коллекция (HTMLCollection), то она не имеет метода push. Как результат ошибка при выводе в консоль.';
 }
 
 document.querySelector('.b-5').onclick = t5;
@@ -92,9 +90,8 @@ document.querySelector('.b-5').onclick = t5;
 function t6() {
     let div = document.createElement('div');
     let divs = document.querySelectorAll('.u-3');
+    document.querySelector('.out-6').textContent = 'Это коллекция (NodeList). Не имеет метода push. Как результат ошибка при выводе в консоль.';
 
-    divs.push(div);
-    console.log(divs);
 }
 
 document.querySelector('.b-6').onclick = t6;
@@ -331,7 +328,7 @@ let a17 = [5, 7, 9, 11, 13, 15];
 function t17(a17) {
 
     for (let element of a17) {
-        document.querySelector('.out-17').textContent += element + '$nbsp;';
+        document.querySelector('.out-17').innerHTML += element + '&nbsp;';
     }
 
 }
