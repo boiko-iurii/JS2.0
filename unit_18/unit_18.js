@@ -111,13 +111,11 @@ document.querySelector('.b-8').onclick = t8;
 
 function t9() {
     let a9 = [['hi', 'mahai'], ['test', 'best']];
-    let arr9 = [];
     let out = a9.forEach(element => {
         element.forEach(elem => {
-            arr9.push(elem);
+            a9_res += `${elem}-`;
         })
     });
-    a9_res = arr9.join('-');
 
     document.querySelector('.out-9').innerHTML = a9_res;
 }
@@ -132,14 +130,8 @@ function t10() {
     let a10 = { name: 'ivan', age: 15, sex: 1, id: 45 };
 
     for (let key in a10) {
-        console.log(key);
-
+        a10_res += `${key}=${a10[key]}&`;
     }
-
-
-    // a10.forEach(element => {
-    //     console.log(element);
-    // });
 
     document.querySelector('.out-10').innerHTML = a10_res;
 }
