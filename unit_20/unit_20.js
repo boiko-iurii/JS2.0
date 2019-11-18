@@ -2,32 +2,31 @@
 // Task 1 ============================================
 /* Дан input .i-1. Напишите функцию t1, которая выводит в .out-1 символ и возвращает его. Во всех последующих задачах - работаем с латиницей и цифрами.*/
 
-function t1() {
+function t1(e) {
+    document.querySelector('.out-1').textContent = e.key;
+    return e.key;
 }
-
-// ваше событие здесь!!!
+document.querySelector('.i-1').onkeydown = t1;
 
 // Task 2 ============================================
 /*  Дан input .i-2. Напишите функцию t2, которая выводит в .out-2 код символа и возвращает его. */
 
-function t2() {
-
+function t2(e) {
+    document.querySelector('.out-2').textContent = e.code;
+    return e.code;
 }
-
-// ваше событие здесь!!!
-
+document.querySelector('.i-2').onkeydown = t2;
 
 // Task 3 ============================================
 /*  Дан input .i-3. Напишите функцию t3, которая выводит на страницу true если введен символ и false если цифра. Для определения - используйте код клавиши. */
 
 let w3 = 75;
 
-function t3() {
-
+function t3(e) {
+    console.log(e)
+    document.querySelector('.out-3').textContent = e.code;
 }
-
-// ваше событие здесь!!!
-
+document.querySelector('.i-3').onkeydown = t3;
 
 // Task 4 ============================================
 /*  Дан input .i-4. Напишите функцию t4, которая выводит в .out-4 только символы в нижнем регистре. Т.е. ввели ab4Bci в out получаем ab4bci. */
