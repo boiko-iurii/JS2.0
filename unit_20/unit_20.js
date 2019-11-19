@@ -20,41 +20,49 @@ document.querySelector('.i-2').onkeydown = t2;
 // Task 3 ============================================
 /*  Дан input .i-3. Напишите функцию t3, которая выводит на страницу true если введен символ и false если цифра. Для определения - используйте код клавиши. */
 
-let w3 = 75;
-
 function t3(e) {
-    console.log(e)
-    document.querySelector('.out-3').textContent = e.code;
+    let out;
+    if (e.keyCode >= 65 && e.keyCode <= 90) {
+        out = true;
+    }
+    else if (e.keyCode >= 48 && e.keyCode <= 57 || e.keyCode >= 96 && e.keyCode <= 105) {
+        out = false;
+    }
+    document.querySelector('.out-3').textContent = out;
 }
 document.querySelector('.i-3').onkeydown = t3;
 
 // Task 4 ============================================
 /*  Дан input .i-4. Напишите функцию t4, которая выводит в .out-4 только символы в нижнем регистре. Т.е. ввели ab4Bci в out получаем ab4bci. */
 
-function t4() {
-
+function t4(e) {
+    if (e.keyCode >= 65 && e.keyCode <= 90) {
+        document.querySelector('.out-4').textContent += e.key.toLowerCase();
+    }
 }
-
-// ваше событие здесь!!!
+document.querySelector('.i-4').onkeydown = t4;
 
 // Task 5 ============================================
 /*  Дан input .i-5. Напишите функцию t5, которая выводит в .out-5 все вводимые символы в верхнем регистре. Т.е. пользователь ввел AbCd и функция выведет ABCD. */
 
-function t5() {
-
+function t5(e) {
+    if (e.keyCode >= 65 && e.keyCode <= 90) {
+        document.querySelector('.out-5').textContent += e.key.toUpperCase();
+    }
 }
-
-// ваше событие здесь!!!
+document.querySelector('.i-5').onkeydown = t5;
 
 // Task 6 ============================================
 /*  Дан input .i-6. Напишите функцию t6, которая выводит в .i-6 только символы в нижнем регистре.  */
 
-function t6() {
-
+function t6(elem, event) {
+    if (event.keyCode >= 65 && event.keyCode <= 90) {
+        elem.value = event.key.toLowerCase();
+    }
 }
-
-// ваше событие здесь!!!
-
+document.querySelector('.i-6').onkeydown = function (e) {
+    t6(this, e);
+}
 
 // Task 7 ============================================
 /*  Дан input .i-7. Напишите функцию t7, которая выводит в .out-7 случаный символ из массива a7 при каждом вводе символа. */
