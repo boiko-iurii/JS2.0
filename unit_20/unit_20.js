@@ -57,11 +57,12 @@ document.querySelector('.i-5').onkeydown = t5;
 
 function t6(elem, event) {
     if (event.keyCode >= 65 && event.keyCode <= 90) {
-        elem.value = event.key.toLowerCase();
+        elem.value += event.key.toLowerCase();
     }
 }
 document.querySelector('.i-6').onkeydown = function (e) {
     t6(this, e);
+    return false;
 }
 
 // Task 7 ============================================
