@@ -69,40 +69,69 @@ document.querySelector('.i-6').onkeydown = function (e) {
 /*  Дан input .i-7. Напишите функцию t7, которая выводит в .out-7 случаный символ из массива a7 при каждом вводе символа. */
 
 function t7() {
-    const a7 = [];
+    const a7 = ['A', 'q', 'w', 'E', 'r', 't', 'Y'];
+    let random = Math.floor(Math.random() * Math.floor(a7.length));
+
+    document.querySelector('.out-7').textContent = a7[random];
 
 }
-
-// ваше событие здесь!!!
+document.querySelector('.i-7').onkeydown = t7;
 
 // Task 8 ============================================
 /*  Дан input .i-8. Напишите функцию t8, которая выводит в .out-8 вводимый в input текст, но заменяет i на 1, o на 0, l на 7. */
 
-function t8() {
+function t8(e) {
+
+    let a = {
+        i: 1,
+        o: '0',
+        l: 7
+    }
+    if (e.keyCode >= 65 && e.keyCode <= 90) {
+        if (a[e.key])
+            document.querySelector('.out-8').textContent += a[e.key];
+        else
+            document.querySelector('.out-8').textContent += e.key;
+    }
+
 
 }
-
-// ваше событие здесь!!!
+document.querySelector('.i-8').onkeydown = t8;
 
 
 // Task 9 ============================================
-/* Дан input .i-9. Напишите функцию t8, выводит в .out-9 количество нажатых клавиш стрелка вниз. */
+/* Дан input .i-9. Напишите функцию t9, выводит в .out-9 количество нажатых клавиш стрелка вниз. */
 
-function t9() {
+let counter = 0;
 
+function t9(e) {
+    if (e.code == 'ArrowDown') {
+        counter++;
+    }
+    document.querySelector('.out-9').textContent = counter;
 }
-
-// ваше событие здесь!!!
+document.querySelector('.i-9').onkeydown = t9;
 
 
 // Task 10 ============================================
 /*  Дан input .i-10 и изображение 1.png. Добавьте событие на input, при нажатии клавиш стрелка вправо и стрелка влево увеличивать ширину изображения. Клавиши стрелка вверх и вниз - увеличивать высоту изображения. Одно нажатие клавиши - 1px. */
 
-function t10() {
+function t10(e) {
+    let img = document.querySelector('img');
+    let imgWidth = img.offsetWidth;
+    let imgHeight = img.offsetHeight;
+
+    if (e.code == 'ArrowLeft' || e.code == 'ArrowRight') {
+        imgWidth++;
+        img.style.width = imgWidth + 'px';
+    }
+    else if (e.code == 'ArrowDown' || e.code == 'ArrowUp') {
+        imgHeight++;
+        img.style.height = imgHeight + 'px';
+    }
 
 }
-
-// ваше событие здесь!!!
+document.querySelector('.i-10').onkeydown = t10;
 
 // Task 11 ============================================
 /*  Проект. Дан input .i-11. Используя знания html и css нарисуйте клавиатуру (можно схематически). Изображение должно содержать числа, символьные клавиши, пробел, enter, caps lock, shift, tab, alt. При вводе текста в input в момент нажатия клавиши - затемняйте ее, в момент отпускания - возвращайте к первоначальному состоянию. Аналогично при нажатии enter, space, alt, shift, ctrl. Затемнение реализуйте через добавление класса CSS. Для удобства рекомендую каждой клавише добавить атрибут data с символом. Если нажата клавиша caps lock - то присвоить ей затемнение, которое работает до последующего отжатия клавиши. */
@@ -110,6 +139,3 @@ function t10() {
 function t11() {
 
 }
-
-// ваше событие здесь!!!
-
