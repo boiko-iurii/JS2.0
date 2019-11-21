@@ -22,3 +22,42 @@ section {
 .hide {
     display: none;
 }
+.keyboard {
+    width: 488px;
+    font-size: 12px;
+    margin: 15px auto 0;
+}
+.keyboard-row {
+    margin: 0;
+    display: flex;
+}
+.key {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #999;
+    margin: 0 2px 2px 0;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+    padding: 0 4px;
+    box-sizing: border-box;
+}
+.tab {
+    width: 52px;
+}
+
+.caps-lock {
+    width: 67px;
+}
+.shift {
+    width: 82px;
+}
+.space {
+    width: 192px;
+}
+.fl-a {
+    flex: auto;
+}
+.press {
+    box-shadow: inset 0px 0px 8px 0px rgba(153, 153, 153, 0.7);
+}
