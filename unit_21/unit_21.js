@@ -90,20 +90,25 @@ document.querySelector('.div-9').addEventListener('touchstart', t9);
 // Task 10 ============================================
 /*  Дан блок div-10. Добавьте на него событие touchmove. При срабатывании события - увеличивайте его ширину на 1. */
 
-function t10() {
-
+function t10(event) {
+    let target = event.target;
+    let width = target.offsetWidth;
+    width++;
+    target.style.width = width + 'px';
 }
+document.querySelector('.div-10').addEventListener('touchmove', t10);
 
 // ваше событие здесь!!!
 
 // Task 11 ============================================
 /*  Дан блок div-11. Добавьте на него событие touch. При срабатывании выводите радиус события radiusX, radiusY. */
 
-function t11() {
-    // document.querySelector('.out-11').textContent = '';
-    // console.log(event);
-    console.log('event');
+function t11(event) {
+    let radiusX = event.touches[0].radiusX;
+    let radiusY = event.touches[0].radiusY;
+    document.querySelector('.out-11').textContent = `radiusX: ${radiusX}; radiusY: ${radiusY};`;
 }
+
 document.querySelector('.div-11').addEventListener('touchstart', t11);
 
 // Task 12 ============================================
@@ -113,10 +118,8 @@ document.querySelector('.div-11').addEventListener('touchstart', t11);
     Источник иконок https://www.iconfinder.com/iconsets/unigrid-phantom-halloween
 */
 
-function t11() {
+function t12() {
 
 }
-
-// ваше событие здесь!!!
 
 
