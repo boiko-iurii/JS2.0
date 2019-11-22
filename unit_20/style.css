@@ -41,6 +41,7 @@ section {
     line-height: 30px;
     padding: 0 4px;
     box-sizing: border-box;
+    transition: box-shadow .2s ease-out;
 }
 .tab {
     width: 52px;
@@ -59,5 +60,5 @@ section {
     flex: auto;
 }
 .press {
-    box-shadow: inset 0px 0px 8px 0px rgba(153, 153, 153, 0.7);
+    box-shadow: inset 0px 0px 6px 0px rgba(153, 153, 153, 0.7);
 }
