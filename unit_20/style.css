@@ -60,5 +60,5 @@ section {
     flex: auto;
 }
 .press {
-    box-shadow: inset 0px 0px 6px 0px rgba(153, 153, 153, 0.7);
+    box-shadow: inset 0px 0px 12px 0px rgb(80, 151, 83);
 }

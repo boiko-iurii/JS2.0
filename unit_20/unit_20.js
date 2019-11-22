@@ -68,14 +68,14 @@ document.querySelector('.i-6').onkeydown = function (e) {
 // Task 7 ============================================
 /*  Дан input .i-7. Напишите функцию t7, которая выводит в .out-7 случаный символ из массива a7 при каждом вводе символа. */
 
-function t7() {
+function t7(e) {
     const a7 = ['A', 'q', 'w', 'E', 'r', 't', 'Y'];
     let random = Math.floor(Math.random() * Math.floor(a7.length));
 
     document.querySelector('.out-7').textContent = a7[random];
 
 }
-document.querySelector('.i-7').onkeydown = t7;
+document.querySelector('.i-7').onkeypress = t7;
 
 // Task 8 ============================================
 /*  Дан input .i-8. Напишите функцию t8, которая выводит в .out-8 вводимый в input текст, но заменяет i на 1, o на 0, l на 7. */
@@ -136,25 +136,31 @@ document.querySelector('.i-10').onkeydown = t10;
 // Task 11 ============================================
 /*  Проект. Дан input .i-11. Используя знания html и css нарисуйте клавиатуру (можно схематически). Изображение должно содержать числа, символьные клавиши, пробел, enter, caps lock, shift, tab, alt. При вводе текста в input в момент нажатия клавиши - затемняйте ее, в момент отпускания - возвращайте к первоначальному состоянию. Аналогично при нажатии enter, space, alt, shift, ctrl. Затемнение реализуйте через добавление класса CSS. Для удобства рекомендую каждой клавише добавить атрибут data с символом. Если нажата клавиша caps lock - то присвоить ей затемнение, которое работает до последующего отжатия клавиши. */
 
-function t11_onkeydown(e) {
-    let keys = document.querySelectorAll('[data-code]');
+counter = 0;
+let keys = document.querySelectorAll('[data-code]');
 
+function t11_onkeydown(e) {
     for (let i = 0; i < keys.length; i++) {
-        if (keys[i].getAttribute('data-code') == e.code) {
+        if (keys[i].getAttribute('data-code') === e.code) {
             keys[i].classList.add('press');
+            if (e.code === 'Tab' || e.code === 'AltLeft' || e.code === 'AltRight')
+                return false;
+            else if (e.code === 'CapsLock')
+                counter++;
         }
     }
-
 }
-function t11_onkeyup(e) {
-    let keys = document.querySelectorAll('[data-code]');
 
+function t11_onkeyup(e) {
     for (let i = 0; i < keys.length; i++) {
         if (keys[i].getAttribute('data-code') == e.code) {
             keys[i].classList.remove('press');
+            if (e.code === 'CapsLock') {
+                if (counter % 2 != 0)
+                    keys[i].classList.add('press');
+            }
         }
     }
-
 }
 
 document.querySelector('.i-11').onkeydown = t11_onkeydown;
