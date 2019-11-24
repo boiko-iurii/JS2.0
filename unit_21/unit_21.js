@@ -115,6 +115,11 @@ document.querySelector('.div-11').addEventListener('touchstart', t11);
     Источник иконок https://www.iconfinder.com/iconsets/unigrid-phantom-halloween
 */
 
+// Текст сохранил в отдельный массив t. Думаю, что необходимо изображения и текст к ним сохранять в массиве объектов или массиве массивов.
+// imgs = [{name : '1.png', caption: 'img-1'}, {name : '2.png', caption: 'img-2'}, ... ]
+// imgs = [['1.png', 'img-1'], ['2.png','img-2'], ... ]
+// Более удобно всего в массиве объектов(ИМХО).
+
 let a = ['1.png', '2.png', '3.png', '4.png', '5.png', '6.png'];
 let t = ['img-1', 'img-2', 'img-3', 'img-4', 'img-5', 'img-6'];
 let minImgs = document.querySelectorAll('.img-12-min');
