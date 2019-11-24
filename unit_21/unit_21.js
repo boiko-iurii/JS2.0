@@ -72,7 +72,6 @@ function t8(elem) {
     const a8 = ['red', 'green', 'blue', 'orange', 'pink', 'yellow'];
     let color = Math.floor(Math.random() * Math.floor(a8.length));
     elem.style.background = a8[color];
-
 }
 document.querySelector('.div-8').addEventListener('touchstart', function () {
     t8(this);
@@ -98,8 +97,6 @@ function t10(event) {
 }
 document.querySelector('.div-10').addEventListener('touchmove', t10);
 
-// ваше событие здесь!!!
-
 // Task 11 ============================================
 /*  Дан блок div-11. Добавьте на него событие touch. При срабатывании выводите радиус события radiusX, radiusY. */
 
@@ -118,8 +115,52 @@ document.querySelector('.div-11').addEventListener('touchstart', t11);
     Источник иконок https://www.iconfinder.com/iconsets/unigrid-phantom-halloween
 */
 
-function t12() {
+let a = ['1.png', '2.png', '3.png', '4.png', '5.png', '6.png'];
+let t = ['img-1', 'img-2', 'img-3', 'img-4', 'img-5', 'img-6'];
+let minImgs = document.querySelectorAll('.img-12-min');
+let maxImg = document.querySelector('.img-12-max');
+let imgCaption = document.querySelector('.img-12-text');
+counter = 0;
 
+function setActiveImg() {
+    minImgs.forEach(el => {
+        el.classList.remove('active-img');
+    });
+    minImgs[counter].classList.add('active-img');
+    imgCaption.textContent = t[counter];
 }
 
+function setImgSrc() {
+    maxImg.setAttribute('src', `img/${a[counter]}`);
+}
 
+function displayActiveImg() {
+    setActiveImg();
+    setImgSrc();
+}
+
+minImgs.forEach((img, index) => {
+    img.onclick = () => {
+        counter = index;
+        setActiveImg();
+        maxImg.setAttribute('src', img.getAttribute('src'));
+    }
+});
+
+document.querySelector('.next').addEventListener('touchstart', () => {
+    counter++;
+    counter %= a.length;
+    displayActiveImg();
+});
+
+document.querySelector('.prev').addEventListener('touchstart', () => {
+    counter--;
+    if (counter < 0)
+        counter += a.length;
+    displayActiveImg();
+});
+
+document.querySelector('.reset').addEventListener('touchstart', () => {
+    counter = 0;
+    displayActiveImg();
+});
