@@ -119,6 +119,7 @@ const card = {
 function t10() {
     localStorage.setItem('card', JSON.stringify(card));
     t11();
+    t12();
 }
 document.querySelector('.b-10').onclick = t10;
 
@@ -129,26 +130,29 @@ function t11() {
     let c11 = localStorage.getItem('card');
     c11 = JSON.parse(c11);
 
-    console.log(c11);
-
     for (let key in c11) {
-        document.querySelector('.out-10').innerHTML = `<br>`;
-        console.log(key, c11[key])
+        document.querySelector('.out-10').innerHTML +=
+            `<div  data-product="${key}" class="table-row">
+                <div class="product">
+                    ${key}
+                </div>
+                <div class="quantity">
+                    ${c11[key]}
+                    <span class="plus">+</span>
+                    <span class="minus">-</span>
+                </div>
+            </div>`;
     }
-
-    console.log(c11);
-    console.log(card);
 }
 
 // Task 12 ============================================
 /*  Добавьте в таблицу кнопки плюс и минус возле каждого товара. При нажатии кнопки - изменяйте количество товаров в card, обновляйте LS, выводите на страницу. */
 
 function t12() {
-
+    document.querySelector('.quantity').onclick = function () {
+        document.querySelector('.quantity').textContent = 5;
+    }
 }
-
-// ваше событие здесь!!!
-
 // Task 13 ============================================
 /*  Добавьте в таблицу footer который считает общее количество товара. */
 
@@ -156,13 +160,9 @@ function t13() {
 
 }
 
-// ваше событие здесь!!!
-
 // Task 14 ============================================
 /*  Добавьте функцию t13, которая при загрузке страницы проверяет наличие card в LS и если есть -выводит его на страницу. Если нет - пишет корзина пуста. */
 
-function t13() {
+function t14() {
 
 }
-
-// ваше событие здесь!!!
