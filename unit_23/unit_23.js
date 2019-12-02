@@ -129,23 +129,22 @@ document.querySelector('.b-10').onclick = t10;
 
 function t11() {
     let c11 = localStorage.getItem('card');
-    let quantity = 0;
+    let out = '';
     c11 = JSON.parse(c11);
 
     for (let key in c11) {
-        document.querySelector('.out-10').innerHTML +=
-            `<div data-product="${key}" class="table-row">
-                <div class="product">
-                    ${key}
-                </div>
-                <div class="quantity">
-                    <span data-quantity="${c11[key]}">${c11[key]}</span>
-                    <span class="plus">+</span>
-                    <span class="minus">-</span>
-                </div>
-            </div>`;
+        out += `<div data-product="${key}" class="table-row">
+                    <div class="product">
+                        ${key}
+                    </div>
+                    <div class="quantity">
+                        <span data-quantity="${c11[key]}">${c11[key]}</span>
+                        <span class="plus">+</span>
+                        <span class="minus">-</span>
+                    </div>
+                </div>`;
     }
-
+    document.querySelector('.out-10').innerHTML = out;
 }
 
 // Task 12 ============================================
@@ -198,15 +197,18 @@ function totalAmount() {
 }
 
 function refreshTotalAmount(footer) {
-    footer.textContent = `Количество : ${totalAmount()}`;
+    footer.innerHTML = `Количество: <b>${totalAmount()}</b>`;
 }
 
 // Task 14 ============================================
 /*  Добавьте функцию t14, которая при загрузке страницы проверяет наличие card в LS и если есть -выводит его на страницу. Если нет - пишет корзина пуста. */
 
 function t14() {
-    if (localStorage.getItem('card'))
+    if (localStorage.getItem('card')) {
         t11();
+        t12();
+        t13();
+    }
     else
         document.querySelector('.out-10').textContent = 'Корзина пуста.';
 }
