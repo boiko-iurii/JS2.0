@@ -212,4 +212,4 @@ function t14() {
     else
         document.querySelector('.out-10').textContent = 'Корзина пуста.';
 }
-t14();
+// t14();
