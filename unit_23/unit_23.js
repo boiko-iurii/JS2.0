@@ -120,7 +120,11 @@ function t10(card) {
     localStorage.setItem('card', JSON.stringify(card));
 }
 document.querySelector('.b-10').onclick = function () {
+<<<<<<< HEAD
     t10(card);
+=======
+    t10();
+>>>>>>> 2f8bc881fef14753ae5c98c49eda5d7c4e99b7d3
     t11();
     t12();
     t13();
@@ -158,7 +162,10 @@ function t12() {
             card[product]++;
             localStorage.setItem('card', JSON.stringify(card));
             item.querySelector('.quantity-value').textContent = card[product];
+<<<<<<< HEAD
             totalAmount();
+=======
+>>>>>>> 2f8bc881fef14753ae5c98c49eda5d7c4e99b7d3
         }
         item.querySelector('.minus').onclick = function () {
             if (card[product] > 0) {
@@ -166,11 +173,19 @@ function t12() {
             }
             localStorage.setItem('card', JSON.stringify(card));
             item.querySelector('.quantity-value').textContent = card[product];
+<<<<<<< HEAD
             totalAmount();
         }
     })
 }
 
+=======
+        }
+    })
+
+
+}
+>>>>>>> 2f8bc881fef14753ae5c98c49eda5d7c4e99b7d3
 function refreshQuantity() {
 
 }
@@ -178,16 +193,25 @@ function refreshQuantity() {
 // Task 13 ============================================
 /*  Добавьте в таблицу footer который считает общее количество товара. */
 
-function t13() {
+function createFooter() {
     let footer = document.createElement('div');
     document.querySelector('.out-10').append(footer);
     footer.classList.add('table-footer');
+<<<<<<< HEAD
     totalAmount();
 }
 
 function totalAmount() {
     let footer = document.querySelector('.table-footer');
     let card = JSON.parse(localStorage.getItem('card'));
+=======
+    footer.innerHTML = `Количество: <b>${totalAmount()}</b>`;
+    console.log(card);
+}
+
+function totalAmount(card) {
+    card = JSON.parse(localStorage.getItem('card'));
+>>>>>>> 2f8bc881fef14753ae5c98c49eda5d7c4e99b7d3
     let res = 0;
     for (let key in card) {
         res += card[key];
@@ -196,10 +220,19 @@ function totalAmount() {
     return res;
 }
 
+<<<<<<< HEAD
+=======
+function t13() {
+    createFooter()
+
+}
+
+>>>>>>> 2f8bc881fef14753ae5c98c49eda5d7c4e99b7d3
 // Task 14 ============================================
 /*  Добавьте функцию t14, которая при загрузке страницы проверяет наличие card в LS и если есть -выводит его на страницу. Если нет - пишет корзина пуста. */
 
 function t14() {
+<<<<<<< HEAD
     if (localStorage.getItem('card')) {
         // t10();
         t11();
@@ -208,5 +241,8 @@ function t14() {
     }
     else
         document.querySelector('.out-10').textContent = 'Корзина пуста.';
+=======
+    // console.log(card)
+>>>>>>> 2f8bc881fef14753ae5c98c49eda5d7c4e99b7d3
 }
 window.onload = t14;
