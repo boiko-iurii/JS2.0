@@ -116,15 +116,11 @@ const card = {
     'grape': 2
 }
 
-function t10(card) {
+function t10() {
     localStorage.setItem('card', JSON.stringify(card));
 }
 document.querySelector('.b-10').onclick = function () {
-<<<<<<< HEAD
-    t10(card);
-=======
     t10();
->>>>>>> 2f8bc881fef14753ae5c98c49eda5d7c4e99b7d3
     t11();
     t12();
     t13();
@@ -134,19 +130,21 @@ document.querySelector('.b-10').onclick = function () {
 /*  Создайте фукнцию t11 которая читает корзину из LS и выводит на страницу в виде таблицы. Формат -  название товара - количество. Функция должна вызываться всегда после перезаписи LS ( в данном случае - просто добавьте ее вызов в нужные функции). */
 
 function t11() {
-    let card11 = JSON.parse(localStorage.getItem('card'));
+    let card = localStorage.getItem('card');
     let out = '';
-    for (let key in card11) {
-        out += `<div data-product="${key}" class="table-row product">
-        <div class="product-name">
-            ${key}
-        </div>
-        <div class="quantity">
-            <span class="quantity-value">${card11[key]}</span>
-            <span class="plus">+</span>
-            <span class="minus">-</span>
-        </div>
-    </div>`;
+    card = JSON.parse(card);
+
+    for (let key in card) {
+        out += `<div data-product="${key}" class="table-row">
+                    <div class="product-name">
+                        ${key}
+                    </div>
+                    <div class="quantity">
+                        <span class="quantity-value">${card[key]}</span>
+                        <span class="plus">+</span>
+                        <span class="minus">-</span>
+                    </div>
+                </div>`;
     }
     document.querySelector('.out-10').innerHTML = out;
 }
@@ -155,94 +153,70 @@ function t11() {
 /*  Добавьте в таблицу кнопки плюс и минус возле каждого товара. При нажатии кнопки - изменяйте количество товаров в card, обновляйте LS, выводите на страницу. */
 
 function t12() {
-    document.querySelectorAll('.product').forEach(item => {
-        let product = item.getAttribute('data-product');
+    let card = localStorage.getItem('card');
+    card = JSON.parse(card);
+
+    document.querySelectorAll('[data-product]').forEach(item => {
+
+        let quantity = card[item.getAttribute('data-product')];
 
         item.querySelector('.plus').onclick = function () {
-            card[product]++;
-            localStorage.setItem('card', JSON.stringify(card));
-            item.querySelector('.quantity-value').textContent = card[product];
-<<<<<<< HEAD
-            totalAmount();
-=======
->>>>>>> 2f8bc881fef14753ae5c98c49eda5d7c4e99b7d3
+            quantity++;
+            setQuantity();
         }
+
         item.querySelector('.minus').onclick = function () {
-            if (card[product] > 0) {
-                card[product]--;
-            }
+            if (quantity > 0)
+                quantity--;
+            setQuantity();
+        }
+
+        function setQuantity() {
+            card[item.getAttribute('data-product')] = quantity;
             localStorage.setItem('card', JSON.stringify(card));
-            item.querySelector('.quantity-value').textContent = card[product];
-<<<<<<< HEAD
-            totalAmount();
+            item.querySelector('.quantity-value').textContent = quantity;
+            refreshTotalAmount(document.querySelector('.table-footer'));
         }
-    })
-}
 
-=======
-        }
-    })
-
-
-}
->>>>>>> 2f8bc881fef14753ae5c98c49eda5d7c4e99b7d3
-function refreshQuantity() {
-
+    });
 }
 
 // Task 13 ============================================
 /*  Добавьте в таблицу footer который считает общее количество товара. */
 
-function createFooter() {
+function t13() {
     let footer = document.createElement('div');
     document.querySelector('.out-10').append(footer);
     footer.classList.add('table-footer');
-<<<<<<< HEAD
-    totalAmount();
+    refreshTotalAmount(footer);
 }
 
 function totalAmount() {
-    let footer = document.querySelector('.table-footer');
-    let card = JSON.parse(localStorage.getItem('card'));
-=======
-    footer.innerHTML = `Количество: <b>${totalAmount()}</b>`;
-    console.log(card);
-}
-
-function totalAmount(card) {
-    card = JSON.parse(localStorage.getItem('card'));
->>>>>>> 2f8bc881fef14753ae5c98c49eda5d7c4e99b7d3
     let res = 0;
+    let card = localStorage.getItem('card');
+
+    card = JSON.parse(card);
+
     for (let key in card) {
         res += card[key];
     }
-    footer.innerHTML = `Количество: <b>${res}</b>`;
     return res;
 }
 
-<<<<<<< HEAD
-=======
-function t13() {
-    createFooter()
-
+function refreshTotalAmount(footer) {
+    footer.innerHTML = `Количество: <b>${totalAmount()}</b>`;
 }
 
->>>>>>> 2f8bc881fef14753ae5c98c49eda5d7c4e99b7d3
 // Task 14 ============================================
 /*  Добавьте функцию t14, которая при загрузке страницы проверяет наличие card в LS и если есть -выводит его на страницу. Если нет - пишет корзина пуста. */
 
 function t14() {
-<<<<<<< HEAD
     if (localStorage.getItem('card')) {
-        // t10();
         t11();
         t12();
         t13();
     }
     else
         document.querySelector('.out-10').textContent = 'Корзина пуста.';
-=======
-    // console.log(card)
->>>>>>> 2f8bc881fef14753ae5c98c49eda5d7c4e99b7d3
 }
 window.onload = t14;
