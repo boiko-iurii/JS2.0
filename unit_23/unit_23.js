@@ -119,6 +119,7 @@ const card = {
 function t10() {
     localStorage.setItem('card', JSON.stringify(card));
 }
+
 document.querySelector('.b-10').onclick = function () {
     t10();
     t11();
@@ -129,10 +130,14 @@ document.querySelector('.b-10').onclick = function () {
 // Task 11 ============================================
 /*  Создайте фукнцию t11 которая читает корзину из LS и выводит на страницу в виде таблицы. Формат -  название товара - количество. Функция должна вызываться всегда после перезаписи LS ( в данном случае - просто добавьте ее вызов в нужные функции). */
 
-function t11() {
+function getCardFromLs() {
     let card = localStorage.getItem('card');
+    return JSON.parse(card);
+}
+
+function t11() {
     let out = '';
-    card = JSON.parse(card);
+    let card = getCardFromLs();
 
     for (let key in card) {
         out += `<div data-product="${key}" class="table-row">
@@ -153,8 +158,7 @@ function t11() {
 /*  Добавьте в таблицу кнопки плюс и минус возле каждого товара. При нажатии кнопки - изменяйте количество товаров в card, обновляйте LS, выводите на страницу. */
 
 function t12() {
-    let card = localStorage.getItem('card');
-    card = JSON.parse(card);
+    let card = getCardFromLs();
 
     document.querySelectorAll('[data-product]').forEach(item => {
 
@@ -193,9 +197,7 @@ function t13() {
 
 function totalAmount() {
     let res = 0;
-    let card = localStorage.getItem('card');
-
-    card = JSON.parse(card);
+    let card = getCardFromLs();
 
     for (let key in card) {
         res += card[key];
