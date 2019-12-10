@@ -120,11 +120,17 @@ function t10() {
     localStorage.setItem('card', JSON.stringify(card));
 }
 
+function refreshCard() {
+    let card = getCardFromLs();
+
+    t11(card);
+    t12(card);
+    t13(card);
+}
+
 document.querySelector('.b-10').onclick = function () {
     t10();
-    t11();
-    t12();
-    t13();
+    refreshCard();
 }
 
 // Task 11 ============================================
@@ -213,11 +219,8 @@ function refreshTotalAmount(footer) {
 /*  Добавьте функцию t14, которая при загрузке страницы проверяет наличие card в LS и если есть -выводит его на страницу. Если нет - пишет корзина пуста. */
 
 function t14() {
-    if (localStorage.getItem('card')) {
-        t11();
-        t12();
-        t13();
-    }
+    if (localStorage.getItem('card'))
+        refreshCard();
     else
         document.querySelector('.out-10').textContent = 'Корзина пуста.';
 }
