@@ -11,11 +11,11 @@ function t1() {
     let a = new Promise((resolve, reject) => {
         fetch('http://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcisjc&action=1')
             .then(data => resolve(data.text()))
-    })
+    });
     let b = new Promise((resolve, reject) => {
         fetch('http://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcisjc&action=2&name=Iurii')
             .then(data => resolve(data.text()))
-    })
+    });
     Promise.all([a, b]).then(value => {
         document.querySelector('.out-1').innerHTML = value;
     });
@@ -40,11 +40,11 @@ function t2() {
     let a = new Promise((resolve, reject) => {
         fetch('http://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcisjc&action=3&num1=4.5&num2=4')
             .then(data => resolve(data.text()))
-    })
+    });
     let b = new Promise((resolve, reject) => {
         fetch('http://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcisjc&action=4&num1=2&num2=7')
             .then(data => resolve(data.text()))
-    })
+    });
     Promise.all([a, b]).then(value => {
         document.querySelector('.out-2').innerHTML = value;
     });
@@ -63,14 +63,23 @@ document.querySelector('.b-2').onclick = t2;
 <p>Два
 запроса объедините с помощью promiseAll.
 Выведите в out-3 результат. Запускаться функция должна по нажатию b-3. </p>
-                 */
+    */
 
 function t3() {
+    let a = new Promise((resolve, reject) => {
+        fetch('http://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcisjc&action=5')
+            .then(data => resolve(data.text()))
+    });
+    let b = new Promise((resolve, reject) => {
+        fetch('http://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcisjc&action=6&num1=-2&num2=7.55')
+            .then(data => resolve(data.text()))
+    });
+    Promise.all([a, b]).then(value => {
+        document.querySelector('.out-3').innerHTML = value;
+    });
 
 }
-
-// ваше событие здесь!!!
-
+document.querySelector('.b-3').onclick = t3;
 
 // Task 4 ============================================
 /*  
@@ -86,10 +95,20 @@ function t3() {
 */
 
 function t4() {
+    let a = new Promise((resolve, reject) => {
+        fetch('http://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcisjc&action=7')
+            .then(data => resolve(data.text()))
+    });
+    let b = new Promise((resolve, reject) => {
+        fetch('http://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcisjc&action=8&year=1986')
+            .then(data => resolve(data.text()))
+    });
+    Promise.all([a, b]).then(value => {
+        document.querySelector('.out-4').innerHTML = value;
+    });
 
 }
-
-// ваше событие здесь!!!
+document.querySelector('.b-4').onclick = t4;
 
 // Task 5 ============================================
 /*  
@@ -102,10 +121,31 @@ POST запрос на сайт http://getpost.itgid.info/index2.php. В кач�
 */
 
 function t5() {
-
+    let a = new Promise((resolve, reject) => {
+        fetch('http://getpost.itgid.info/index2.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: 'auth=zhrgB3DxC8LoG7Gcisjc&action=1'
+        })
+            .then(data => resolve(data.text()))
+    });
+    let b = new Promise((resolve, reject) => {
+        fetch('http://getpost.itgid.info/index2.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: 'auth=zhrgB3DxC8LoG7Gcisjc&action=2&name=Iurii'
+        })
+            .then(data => resolve(data.text()))
+    });
+    Promise.all([a, b]).then(value => {
+        document.querySelector('.out-5').innerHTML = value;
+    });
 }
-
-// ваше событие здесь!!!
+document.querySelector('.b-5').onclick = t5;
 
 // Task 6 ============================================
 /* 
@@ -123,11 +163,31 @@ function t5() {
 */
 
 function t6() {
-
+    let a = new Promise((resolve, reject) => {
+        fetch('http://getpost.itgid.info/index2.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: 'auth=zhrgB3DxC8LoG7Gcisjc&action=3&num1=3&num2=-0.0001'
+        })
+            .then(data => resolve(data.text()))
+    });
+    let b = new Promise((resolve, reject) => {
+        fetch('http://getpost.itgid.info/index2.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: 'auth=zhrgB3DxC8LoG7Gcisjc&action=4&num1=7&num2=8'
+        })
+            .then(data => resolve(data.text()))
+    });
+    Promise.all([a, b]).then(value => {
+        document.querySelector('.out-6').innerHTML = value;
+    });
 }
-
-// ваше событие здесь!!!
-
+document.querySelector('.b-6').onclick = t6;
 
 // Task 7 ============================================
 /*  
@@ -142,10 +202,31 @@ function t6() {
 */
 
 function t7() {
-
+    let a = new Promise((resolve, reject) => {
+        fetch('http://getpost.itgid.info/index2.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: 'auth=zhrgB3DxC8LoG7Gcisjc&action=5'
+        })
+            .then(data => resolve(data.text()))
+    });
+    let b = new Promise((resolve, reject) => {
+        fetch('http://getpost.itgid.info/index2.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: 'auth=zhrgB3DxC8LoG7Gcisjc&action=6&num1=7&num2=7'
+        })
+            .then(data => resolve(data.text()))
+    });
+    Promise.all([a, b]).then(value => {
+        document.querySelector('.out-7').innerHTML = value;
+    });
 }
-
-// ваше событие здесь!!!
+document.querySelector('.b-7').onclick = t7;
 
 // Task 8 ============================================
 /* 
@@ -161,8 +242,28 @@ function t7() {
 */
 
 function t8() {
-
+    let a = new Promise((resolve, reject) => {
+        fetch('http://getpost.itgid.info/index2.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: 'auth=zhrgB3DxC8LoG7Gcisjc&action=7'
+        })
+            .then(data => resolve(data.text()))
+    });
+    let b = new Promise((resolve, reject) => {
+        fetch('http://getpost.itgid.info/index2.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: 'auth=zhrgB3DxC8LoG7Gcisjc&action=8&year=1986'
+        })
+            .then(data => resolve(data.text()))
+    });
+    Promise.all([a, b]).then(value => {
+        document.querySelector('.out-8').innerHTML = value;
+    });
 }
-
-// ваше событие здесь!!!
-
+document.querySelector('.b-8').onclick = t8;
