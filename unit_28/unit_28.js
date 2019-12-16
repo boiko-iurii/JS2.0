@@ -36,21 +36,59 @@ goods2.draw(document.querySelector('.out-4'));
 //Task 5.
 // Создайте класс Goods2, который наследуется от Goods. Добавьте ему свойство sale равное true или false. Перезапишите метод draw так, чтобы он выводил информацию о распродажах.
 
+class Goods2 extends Goods {
+    constructor(name, amount, image, count, price, sale) {
+        super(name, amount, image, count, price);
+        this.sale = sale;
+    }
+    draw(elem) {
+        let div = document.createElement('div');
+        div.classList.add('product');
+        div.innerHTML = `<image src=${this.image}>`;
+        div.innerHTML += `<div class="name">${this.name}</div>`;
+        div.innerHTML += `<div class="price">${this.price}</div>`;
+        if (this.sale)
+            div.innerHTML += `<div class="sale">Распродажа</div>`;
+        elem.append(div);
+    }
+}
 
 // Task 6.
 // Создайте на основе класса Goods2 объект goods3. Заполните все поля. Выведите товар на страницу с помощью метода draw. Вывод осуществить в out-6.
+
+const goods3 = new Goods2('Наушники Marshall Major III Bluetooth Black (4092186)', 5, 'https://i1.rozetka.ua/goods/4517312/marshall_4092186_images_4517312504.jpg', 2, '2799 грн', true);
+
+goods3.draw(document.querySelector('.out-6'));
 
 
 // Task 7.
 // Создайте класс Valid, который содержит свойства email, password, isValid. И метод validate. Метод validate должен проверять длину пароля и писать false в isValid если длина меньше 6 и true если больше. Изначально свойство isValid равно false.
 
+class Valid {
+    constructor(email, password, isValid = false) {
+        this.email = email;
+        this.password = password;
+        this.isValid = isValid;
+    }
+    validate() {
+        this.isValid = (this.password.length > 6) ? true : this.isValid;
+    }
+}
+
 
 //Task 8.
 // Создайте объект на основе класса Valid и задайте ему имя и пароль длиной 5 символов. Запустите метод validate() и выведите в консоль свойство isValid.
 
+let v = new Valid('email', '12345');
+v.validate();
+console.log(v.isValid);
 
 //Task 9.
 // Создайте объект на основе класса Valid и задайте ему имя и пароль длиной 7 символов. Запустите метод validate() и выведите в консоль свойство isValid.
+
+let v2 = new Valid('email', '1234567');
+v2.validate();
+console.log(v2.isValid);
 
 
 //Task 10.
