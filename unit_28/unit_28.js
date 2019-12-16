@@ -2,51 +2,35 @@
 // Создайте класс Goods. Класс должен содержать свойства name, amount. Создайте на его основе объект goods. Выведите в консоль созданный объект. Помните, все классы - в отдельных файлах. Имена классов с большой буквы.
 
 class Goods {
-    constructor(name = 'name', amount = 15) {
+    constructor(name, amount, image, count, price) {
         this.name = name;
         this.amount = amount;
+        this.image = image;
+        this.count = count;
+        this.price = price;
+    }
+    draw(elem) {
+        let div = document.createElement('div');
+        div.classList.add('product');
+        div.innerHTML = `<image src=${this.image}>`;
+        div.innerHTML += `<div class="name">${this.name}</div>`;
+        div.innerHTML += `<div class="price">${this.price}</div>`;
+        elem.append(div);
     }
 }
 
 //Task 2.
 //  Добавьте в класс Goods свойства image и count - картинка и количество на складе.
 
-class Goods2 extends Goods {
-    constructor(name = 'dd', amount, image = 'img', count = 'abc') {
-        super(name, amount);
-        this.image = image;
-        this.count = count;
-    }
-}
-
 //Task 3. 
 //  Добавьте в класс Goods метод draw, который будет выводить div с изображением, названием товара, ценой - в указанный элемент (дозапись).
-
-class Goods3 extends Goods2 {
-    constructor(div = 'div') {
-        super();
-        this.div = div;
-    }
-    // draw(element) {
-    //     let div = document.createElement('div');
-    //     div.classList.add('product');
-    //     div.innerHTML = 'image' + ' name';
-    //     element.append(div)
-    // }
-    consoleLog() {
-        console.log(this);
-    }
-
-}
-
-let goods = new Goods3();
-
-goods.consoleLog();
-
 
 // Task 4.
 // Создайте на основе класса Goods объект goods2, заполните свойства, примените метод draw для вывода товара на страницу в блок out-4.
 
+const goods2 = new Goods('Наушники Marshall Major III Bluetooth Black (4092186)', 5, 'https://i1.rozetka.ua/goods/4517312/marshall_4092186_images_4517312504.jpg', 2, '2799 грн');
+
+goods2.draw(document.querySelector('.out-4'));
 
 
 //Task 5.
